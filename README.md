@@ -20,6 +20,10 @@ Reminds you to pay rent/electric bills
 
 Option to add a reminder for when to start a task, and a deadline for when to finish or make a certain amount of progress on the task/break it up into smaller chunks. 
 
+Can add reminders for daily habit (this WILL get annoying)
+
+Sync'd with your iCalendar or Google Calendar- you choose!
+
 Has a dashboard filled with positive reinforcement and of your past accomplishments.
 
 
