@@ -37,6 +37,7 @@ Sync'd with your iCalendar or Google Calendar- you choose!
 
 Has a dashboard filled with positive reinforcement and of your past accomplishments.
 
+reminds you in a way that includes positive self talk
 
 
 
