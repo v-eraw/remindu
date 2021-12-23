@@ -1,5 +1,5 @@
 # remindu
-your own personal assistant for reminding you about things you might've forgotten or not known about.
+A smart personal assistant for things you've forgotten or not actively thought about.
 
 ## current features
 
