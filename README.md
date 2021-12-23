@@ -1,8 +1,9 @@
 # remindu
 your own personal assistant for reminding you about things you might've forgotten or not known about. aka how do I automate being an adult (help)
 
+## current features
 
-## features / user stories
+## future features 
 
 Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
 
