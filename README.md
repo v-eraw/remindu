@@ -16,6 +16,10 @@ Reminds you to file your taxes in a way that's not too stressful.
 
 Reminds you to buy flight tickets to visit home for the holidays in advance so you're not sitting alone in your apartment missing your family.
 
+Reminder during cyber monday/black friday to buy christmas/birthday gifts
+
+Reminder to buy christmas gifts in advance
+
 Reminds you to pay rent/electric bills
 
 Reminds you to take vacations/breaks so you stay sane
