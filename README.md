@@ -18,6 +18,12 @@ Reminds you to buy flight tickets to visit home for the holidays in advance so y
 
 Reminds you to pay rent/electric bills
 
+Reminds you to take vacations/breaks so you stay sane
+
+Suggests new hobbies/ can automatically add tasks or small goals for each one
+
+Can create lists for new hobbies/goals and import/export schedules
+
 Option to add a reminder for when to start a task, and a deadline for when to finish or make a certain amount of progress on the task/break it up into smaller chunks. 
 
 Can add reminders for daily habit (this WILL get annoying)
