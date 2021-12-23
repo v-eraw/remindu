@@ -1,5 +1,5 @@
 # remindu
-your own personal assistant for reminding you about things you might've forgotten or not known about. aka how do I automate being an adult (help)
+your own personal assistant for reminding you about things you might've forgotten or not known about.
 
 ## current features
 
