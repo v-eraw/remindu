@@ -3,6 +3,9 @@ A smart personal assistant for things you've forgotten or not actively thought a
 
 ## current features
 
+### UI
+Designed in a way that offers NO dopamine whatsoever.
+
 ## future features 
 
 Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
