@@ -58,6 +58,8 @@ Has a dashboard filled with positive reinforcement and of your past accomplishme
 
 reminds you in a way that includes positive self talk
 
+views your web history and roasts you if you procrastinate too much
+
 
 
 
