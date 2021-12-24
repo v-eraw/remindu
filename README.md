@@ -10,6 +10,10 @@ Designed in a way that offers NO dopamine whatsoever.
 
 ## future features 
 
+Separated by seasons (hides info you don't need to worry about atm so you don't get overwhelmed), but stores your overarching goals and tasks. 
+
+Reminds you why you do each event.
+
 Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
 
 Add facebook events to your calendar
