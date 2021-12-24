@@ -14,6 +14,8 @@ Add facebook events to your calendar
 
 scrape messenger messages to add events to your calendar
 
+suggests events to go to if you have free time based on location
+
 Manually edit which friend's birthdays to celebrate.
 
 NLP to automatically scrape their facebook and reccomend gifts to give them.
