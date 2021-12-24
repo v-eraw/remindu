@@ -20,6 +20,10 @@ Manually edit which friend's birthdays to celebrate.
 
 NLP to automatically scrape their facebook and reccomend gifts to give them.
 
+calculates and warns if you have events that are distant from each other, adds reminder for when to leave depending on location
+
+learns how much social energy you have and warns you if you overbook
+
 Ensures you get your physical/eye/dental/checkups done annually.
 
 Reminds you to file your taxes in a way that's not too stressful.
