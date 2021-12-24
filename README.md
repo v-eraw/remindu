@@ -10,6 +10,10 @@ Designed in a way that offers NO dopamine whatsoever.
 
 Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
 
+Add facebook events to your calendar
+
+scrape messenger messages to add events to your calendar
+
 Manually edit which friend's birthdays to celebrate.
 
 NLP to automatically scrape their facebook and reccomend gifts to give them.
