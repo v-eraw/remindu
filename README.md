@@ -1,6 +1,8 @@
 # remindu
 A smart personal assistant for things you've forgotten or not actively thought about.
 
+"I have an app idea and it’s literally just emulating my mom reminding me to take care of myself" -me
+
 ## current features
 
 ### UI
