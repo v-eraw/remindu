@@ -1,15 +1,34 @@
 # remindu
-your own personal assistant for reminding you about things you might've forgotten or not known about.
+A smart personal assistant for things you've forgotten or not actively thought about.
+
+"this app is literally just emulating my mom reminding me to take care of myself" -me
 
 ## current features
 
+### UI
+Designed in a way that offers NO dopamine whatsoever.
+
 ## future features 
 
+Separated by seasons (hides info you don't need to worry about atm so you don't get overwhelmed), but stores your overarching goals and tasks. 
+
+Reminds you why you do each event.
+
 Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
+
+Add facebook events to your calendar
+
+scrape messenger messages to add events to your calendar
+
+suggests events to go to if you have free time based on location
 
 Manually edit which friend's birthdays to celebrate.
 
 NLP to automatically scrape their facebook and reccomend gifts to give them.
+
+calculates and warns if you have events that are distant from each other, adds reminder for when to leave depending on location
+
+learns how much social energy you have and warns you if you overbook
 
 Ensures you get your physical/eye/dental/checkups done annually.
 
@@ -39,7 +58,9 @@ Has a dashboard filled with positive reinforcement and of your past accomplishme
 
 reminds you in a way that includes positive self talk
 
+views your web history and roasts you if you procrastinate too much
 
+reminders to manage finance
 
 
 
