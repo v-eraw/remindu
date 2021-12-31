@@ -1,63 +1,34 @@
 # remindu
-A smart personal assistant for things you've forgotten or not actively thought about. built w/ flask + react
+create reminders for daily, weekly, monthly, seasonal, and annual goals (like health checkups, learning new skills)
 
-"this app is literally just emulating my mom reminding me to take care of myself" -me
+track habits, visualize past and current progress, predictions(???)
 
-## current features
+flask, react, MySQL
 
-### UI
-Designed in a way that offers NO dopamine whatsoever.
+purpose: to help transition people into independence by providing a framework with reminders until they get into the hang of things, and also to encourage good habits/help declutter your mind by giving a better grasp on time/energy management
 
-## future features 
+## UI
+[Figma UI WIP]
 
-Separated by seasons (hides info you don't need to worry about atm so you don't get overwhelmed), but stores your overarching goals and tasks. 
+Designed in a way that offers NO dopamine whatsoever but is hopefully super clean, simple, and easy to use
 
-Reminds you why you do each event.
+## Core Features
 
-Automatically bulk update your google calendar with the birthdays of close friends and families by logging in with your facebook account.
+2 views, one seasonal, and one reminder based
 
-Add facebook events to your calendar
+Sync with your apple and google calendar(s)
 
-scrape messenger messages to add events to your calendar
+add reminders 
 
-suggests events to go to if you have free time based on location
+reminders can be marked done, not done, or deferred (by 5, 15, 30 minutes, 1, 3, 7, days, 1, 2, 3, months)
+  - this might be tricker to do, could have it scrape notes/comments?
 
-Manually edit which friend's birthdays to celebrate.
+notes can be added and reviewed later in a reminder details page
 
-NLP to automatically scrape their facebook and reccomend gifts to give them.
+can create categories that correspond to a color
 
-calculates and warns if you have events that are distant from each other, adds reminder for when to leave depending on location
+filter reminders by color, frequency, duration
 
-learns how much social energy you have and warns you if you overbook
+provides a ui to visualize habit tracking for reminders
 
-Ensures you get your physical/eye/dental/checkups done annually.
-
-Reminds you to file your taxes in a way that's not too stressful.
-
-Reminds you to buy flight tickets to visit home for the holidays in advance so you're not sitting alone in your apartment missing your family.
-
-Reminder during cyber monday/black friday to buy christmas/birthday gifts
-
-Reminder to buy christmas gifts in advance
-
-Reminds you to pay rent/electric bills
-
-Reminds you to take vacations/breaks so you stay sane
-
-Suggests new hobbies/ can automatically add tasks or small goals for each one
-
-Can create lists for new hobbies/goals and import/export schedules
-
-Option to add a reminder for when to start a task, and a deadline for when to finish or make a certain amount of progress on the task/break it up into smaller chunks. 
-
-Can add reminders for daily habit (this WILL get annoying)
-
-Sync'd with your iCalendar or Google Calendar- you choose!
-
-Has a dashboard filled with positive reinforcement and of your past accomplishments.
-
-reminds you in a way that includes positive self talk
-
-views your web history and roasts you if you procrastinate too much
-
-reminders to manage finance
+cute end of season/year reports!
