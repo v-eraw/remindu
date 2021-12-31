@@ -31,4 +31,4 @@ filter reminders by color, frequency, duration
 
 provides a ui to visualize habit tracking for reminders
 
-cute end of year report! like spotify
+cute end of season/year reports!
