@@ -87,3 +87,5 @@ reminds you in a way that includes positive self talk -> adds a daily motivation
 roasts you if you procrastinate too much
 
 automatically finds community building organizations filtered on interest -> meetup events, sports leagues, classes, discord channels
+
+mentorship connections for people on different lifestages
