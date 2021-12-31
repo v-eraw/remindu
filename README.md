@@ -61,7 +61,3 @@ reminds you in a way that includes positive self talk
 views your web history and roasts you if you procrastinate too much
 
 reminders to manage finance
-
-
-
-
