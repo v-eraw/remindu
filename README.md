@@ -19,6 +19,7 @@ Sync with your apple and google calendar(s)
 add reminders 
 
 reminders can be marked done, not done, or deferred (by 5, 15, 30 minutes, 1, 3, 7, days, 1, 2, 3, months)
+  - this might be tricker to do, could have it scrape notes/comments?
 
 notes can be added and reviewed later in a reminder details page
 
