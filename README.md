@@ -1,5 +1,7 @@
 # remindu
-A smart personal assistant for things you've forgotten or not actively thought about. flask, react, graphql, MySQL
+a smart personal assistant for things you've forgotten or not actively thought about. 
+
+flask, react, MySQL
 
 purpose: to help transition people into independence by providing a framework with reminders until they get into the hang of things, and also to encourage good habits/help declutter your mind by giving a better grasp on time/energy management
 
