@@ -1,7 +1,7 @@
 # remindu
 create reminders for daily, weekly, monthly, seasonal, and annual goals (like health checkups, learning new skills)
 
-track habits, visualize past and current progress, predictions(?)
+track habits, visualize past and current progress, predictions(???)
 
 flask, react, MySQL
 
