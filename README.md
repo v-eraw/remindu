@@ -1,5 +1,5 @@
 # remindu
-A smart personal assistant for things you've forgotten or not actively thought about.
+A smart personal assistant for things you've forgotten or not actively thought about. built w/ flask + react
 
 "this app is literally just emulating my mom reminding me to take care of myself" -me
 
