@@ -1,8 +1,10 @@
 # remindu
 A smart personal assistant for things you've forgotten or not actively thought about. gonna build w/ flask + react
 
+purpose: to help transition people into independence by providing a framework with reminders until they get into the hang of things, and also to encourage good habits/ help declutter your mind by giving a better grasp on time/energy management with reports on progression and encouragement
+
 ### UI
-Designed in a way that offers NO dopamine whatsoever. Supposed to help w/ executive functioning.
+Designed in a way that offers NO dopamine whatsoever. 
 
 ## Core Features
 
@@ -25,6 +27,8 @@ provides a ui to visualize habit tracking for reminders
 
 Separated by seasons (hides info you don't need to worry about atm so you don't get overwhelmed), but stores your overarching goals and tasks. 
 Reminds you why you do each event.
+
+reminds/educates on credit cards payments, car ownership/maintenance
 
 I've always wanted a smart vacation/travel/trip planner app, which is to say that I'm bad at planning vacations and trips
 
