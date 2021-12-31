@@ -1,5 +1,5 @@
 # remindu
-a smart personal assistant for things you've forgotten or not actively thought about. 
+create reminders, track habits, visualize progress, time management
 
 flask, react, MySQL
 
