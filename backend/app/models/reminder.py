@@ -4,12 +4,13 @@ from app.services.github import GitHub
 class Reminder(db.Model):
     __tablename__ = 'reminder'
 
-    id = db.Column(db.Integer(), primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    avatar_url = db.Column(db.String(80), nullable=True)
-    github_id = db.Column(db.Integer(), nullable=True)
+    reminder_id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(80), unique=True, nullable=False)
+    # TODO check that when you create a new reminder, it has a unique name
+    color = db.Column(db.String(80), nullable=True)
+     = db.Column(db.Integer(), nullable=True)
 
-    def __init__(self, username, avatar_url, github_id):
+    def __init__(self, reminder_id, name, color, ):
         self.username = username
         self.avatar_url = avatar_url
         self.github_id = github_id
