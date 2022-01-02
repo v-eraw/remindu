@@ -8,26 +8,18 @@ class Reminder(db.Model):
     name = db.Column(db.String(80), unique=True, nullable=False)
     # TODO check that when you create a new reminder, it has a unique name
     color = db.Column(db.String(80), nullable=True)
-     = db.Column(db.Integer(), nullable=True)
+    notes = db.Column(db.String(360)), nullable=True)
 
-    def __init__(self, reminder_id, name, color, ):
-        self.username = username
-        self.avatar_url = avatar_url
-        self.github_id = github_id
+    def __init__(self, reminder_id, name, color, notes):
+        self.reminder_id = reminder_id
+        self.name = name
+        self.color = color
+        self.notes = notes
 
     @staticmethod
-    def find_or_create_from_token(access_token):
-        data = GitHub.get_user_from_token(access_token)
-
-        """Find existing user or create new User instance"""
-        instance = User.query.filter_by(username=data['login']).first()
-
-        if not instance:
-            instance = User(data['login'], data['avatar_url'], data['id'])
-            db.session.add(instance)
-            db.session.commit()
-
+    def find_reminder(reminder_id):
+        instance = Reminder.query.filter_by(reminder_id=reminder_id).first()
         return instance
 
     def __repr__(self):
-        return "<User: {}>".format(self.username)
+        return "<Reminder: {}>".format(self.reminder_id)
