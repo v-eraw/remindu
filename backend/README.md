@@ -1,102 +1,164 @@
-# Introduction
+# Express ES2017 REST API Boilerplate
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![npm version](https://badge.fury.io/js/express-rest-es2017-boilerplate.svg)](https://badge.fury.io/js/express-rest-es2017-boilerplate) [![Build Status](https://travis-ci.org/danielfsousa/express-rest-es2017-boilerplate.svg?branch=master)](https://travis-ci.org/danielfsousa/express-rest-es2017-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/danielfsousa/express-rest-es2017-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/danielfsousa/express-rest-es2017-boilerplate?branch=master)
 
-This is a hackathon boilerplate for new Flask web applications created by [Major League Hacking](https://github.com/MLH). It is for hackers looking to get started quickly on a new hackathon project using the Flask microframework.
+Boilerplate/Generator/Starter Project for building RESTful APIs and microservices using Node.js, Express and MongoDB
 
-- [Installation Guide](#installation-guide) - How to get started with a new Flask app
-- [User Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md) - How to develop apps created with this starter project
-- [Contributing Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md) - How to contribute to the project
+## Features
 
-# <a name='installation-guide'>Installation Guide</a>
+ - No transpilers, just vanilla javascript
+ - ES2017 latest features like Async/Await
+ - CORS enabled
+ - Uses [yarn](https://yarnpkg.com)
+ - Express + MongoDB ([Mongoose](http://mongoosejs.com/))
+ - Consistent coding styles with [editorconfig](http://editorconfig.org)
+ - [Docker](https://www.docker.com/) support
+ - Uses [helmet](https://github.com/helmetjs/helmet) to set some HTTP headers for security
+ - Load environment variables from .env files with [dotenv](https://github.com/rolodato/dotenv-safe)
+ - Request validation with [joi](https://github.com/hapijs/joi)
+ - Gzip compression with [compression](https://github.com/expressjs/compression)
+ - Linting with [eslint](http://eslint.org)
+ - Tests with [mocha](https://mochajs.org), [chai](http://chaijs.com) and [sinon](http://sinonjs.org)
+ - Code coverage with [istanbul](https://istanbul.js.org) and [coveralls](https://coveralls.io)
+ - Git hooks with [husky](https://github.com/typicode/husky) 
+ - Logging with [morgan](https://github.com/expressjs/morgan)
+ - Authentication and Authorization with [passport](http://passportjs.org)
+ - API documentation generation with [apidoc](http://apidocjs.com)
+ - Continuous integration support with [travisCI](https://travis-ci.org)
+ - Monitoring with [pm2](https://github.com/Unitech/pm2)
 
-This project requires the following tools:
+## Requirements
 
-- Python - The programming language used by Flask.
-- PostgreSQL - A relational database system.
-- Virtualenv - A tool for creating isolated Python environments.
-
-To get started, install Python and Postgres on your local computer if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
+ - [Node v7.6+](https://nodejs.org/en/download/current/) or [Docker](https://www.docker.com/)
+ - [Yarn](https://yarnpkg.com/en/docs/install)
 
 ## Getting Started
 
-**Step 1. Clone the code into a fresh folder**
+#### Clone the repo and make it yours:
 
-```
-$ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
-$ cd mlh-hackathon-flask-starter
-```
-
-**Step 2. Create a Virtual Environment and install Dependencies.**
-
-Create a new Virtual Environment for the project and activate it. If you don't have the `virtualenv` command yet, you can find installation [instructions here](https://virtualenv.readthedocs.io/en/latest/). Learn more about [Virtual Environments](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).
-
-```
-$ virtualenv venv
-$ source venv/bin/activate
+```bash
+git clone --depth 1 https://github.com/danielfsousa/express-rest-es2017-boilerplate
+cd express-rest-es2017-boilerplate
+rm -rf .git
 ```
 
-Next, we need to install the project dependencies, which are listed in `requirements.txt`.
+#### Install dependencies:
 
-```
-(venv) $ pip install -r requirements.txt
-```
-
-**Step 3: Create an app on GitHub**
-
-Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
-
-```
-http://localhost:5000/auth/callback/github
+```bash
+yarn
 ```
 
-The default port for Flask apps is `5000`, but you may need to update this if your setup uses a different port or if you're hosting your app somewhere besides your local machine.
+#### Set environment variables:
 
-**Step 4: Setup your database**
-
-You need to be able to connect to a database either on your own computer (locally) or through a hosted database. You can [install Postgres locally](http://www.postgresqltutorial.com/install-postgresql/) and [connect to it](http://www.postgresqltutorial.com/connect-to-postgresql-database/) to provide the database for your app.
-
-You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Here is an example:
-
-```
-postgresql://localhost:5432/mlh-hackathon-starter-flask
+```bash
+cp .env.example .env
 ```
 
-**Step 5: Update environment variables and run the Server.**
+## Running Locally
 
-Create a new file named `.env` by duplicating `.env.example`. Update the new file with the GitHub credentials. It should look similar to this:
-
-```
-# .env file
-DATABASE_URL="[INSERT_DATABASE_URL]"
-GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
-GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
+```bash
+yarn dev
 ```
 
-You replace the GitHub credentials here and update the database URL. Learn more about the required [Environment Variables here](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md#environment-variables).
+## Running in Production
 
-Now we're ready to start our server which is as simple as:
-
-```
-(venv) $ flask run
+```bash
+yarn start
 ```
 
-Open http://localhost:5000 to view it in your browser.
+## Lint
 
-The app will automatically reload if you make changes to the code.
-You will see the build errors and warnings in the console.
+```bash
+# lint code with ESLint
+yarn lint
 
-# What's Included?
+# try to fix ESLint errors
+yarn lint:fix
 
-- [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
-- [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
-- [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
-- [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
-- [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
-- [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
+# lint and watch for changes
+yarn lint:watch
+```
 
-# Code of Conduct
+## Test
 
-We enforce a Code of Conduct for all maintainers and contributors of this Guide. Read more in [CONDUCT.md](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONDUCT.md).
+```bash
+# run all tests with Mocha
+yarn test
 
-# License
+# run unit tests
+yarn test:unit
 
-The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/LICENSE.md).
+# run integration tests
+yarn test:integration
+
+# run all tests and watch for changes
+yarn test:watch
+
+# open nyc test coverage reports
+yarn coverage
+```
+
+## Validate
+
+```bash
+# run lint and tests
+yarn validate
+```
+
+## Logs
+
+```bash
+# show logs in production
+pm2 logs
+```
+
+## Documentation
+
+```bash
+# generate and open api documentation
+yarn docs
+```
+
+## Docker
+
+```bash
+# run container locally
+yarn docker:dev
+
+# run container in production
+yarn docker:prod
+
+# run tests
+yarn docker:test
+```
+
+## Deploy
+
+Set your server ip:
+
+```bash
+DEPLOY_SERVER=127.0.0.1
+```
+
+Replace my Docker username with yours:
+
+```bash
+nano deploy.sh
+```
+
+Run deploy script:
+
+```bash
+yarn deploy
+```
+
+## Tutorials
+ - [Create API Documentation Using Squarespace](https://selfaware.blog/home/2018/6/23/api-documentation)
+
+## Inspirations
+
+ - [KunalKapadia/express-mongoose-es6-rest-api](https://github.com/KunalKapadia/express-mongoose-es6-rest-api)
+ - [diegohaz/rest](https://github.com/diegohaz/rest)
+
+## License
+
+[MIT License](README.md) - [Daniel Sousa](https://github.com/danielfsousa)
