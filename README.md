@@ -3,7 +3,6 @@ create reminders for daily, weekly, monthly, seasonal, and annual goals (like he
 
 track habits, visualize past and current progress, predictions(???)
 
-flask, react, MySQL
 
 purpose: to help transition people into independence by providing a framework with reminders until they get into the hang of things, and also to encourage good habits/help declutter your mind by giving a better grasp on time/energy management
 
