@@ -1,32 +1,16 @@
 {
-  "name": "inventory-tracker",
-  "version": "1.0.0",
-  "description": "basic CRUD app for inventory tracking",
-  "main": "index.js",
+  "name": "remindu",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/v-erawang/inventory-tracker.git"
-  },
-  "author": "Vera Wang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/v-erawang/inventory-tracker/issues"
-  },
-  "homepage": "https://github.com/v-erawang/inventory-tracker#readme",
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "ejs": "^3.1.6",
-    "express": "^4.17.2",
-    "fast-csv": "^4.3.6",
-    "mongodb": "^4.3.1"
-  },
-  "devDependencies": {
-    "husky": "^7.0.4",
-    "nodemon": "^2.0.15",
-    "prettier": "2.5.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }
