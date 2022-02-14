@@ -1,9 +1,12 @@
 {
   "name": "remindu",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,5 +15,9 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
+  },
+  "author": "Vera Wang",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
