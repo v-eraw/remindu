@@ -6,13 +6,13 @@ reminders = [
     id: "1",
     description: "wash your dishes",
     datetime: Date.now(),
-    frequency: "daily",
+    frequency: "daily"
   },
   {
     id: "2",
     description: "call your family",
     datetime: Date.now(),
-    frequency: "daily",
+    frequency: "daily"
   },
   {
     id: "3",
@@ -21,6 +21,22 @@ reminders = [
     frequency: "onetime",
   },
 ]
+
+reminder_1_details = {
+  "reminder" : {
+    id: "1",
+    description: "wash your dishes",
+    datetime: Date.now(),
+    frequency: "daily"
+  },
+  "occurences" : [
+    {
+      datetime: Date.now(),
+      status: "done",
+      notes: "completed"
+    }
+  ]
+}
 
 /* GET all reminders listing. */
 router.get('/', function(req, res, next) {
