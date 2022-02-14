@@ -1,4 +1,5 @@
 var express = require('express');
+const { response } = require('../app');
 var router = express.Router();
 
 reminders = [ 
@@ -40,13 +41,19 @@ reminder_1_details = {
 
 /* GET all reminders listing. */
 router.get('/', function(req, res, next) {
-  console.log("getting reminders")
-  res.send(reminders);
+  res.json(reminders);
 });
 
 /* GET the details for a reminders listing. */
 router.get('/:id', function(req, res, next) {
-  res.send('respond with a resource');
+  const id = Number(request.params.id)
+  const reminder = reminder_1_details
+
+  if (reminder) {
+    res.json(reminder);
+  } else {
+    res.status(404).end()
+  }
 });
 
 /* UPDATE reminders listing. */
