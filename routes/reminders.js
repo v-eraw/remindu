@@ -10,13 +10,13 @@ reminders = [
   },
   {
     id: "2",
-    description: "call your mom",
+    description: "call your family",
     datetime: Date.now(),
     frequency: "daily",
   },
   {
     id: "3",
-    description: "book a ticket to france",
+    description: "book a doctor's appointment",
     datetime: Date.now(),
     frequency: "onetime",
   },
