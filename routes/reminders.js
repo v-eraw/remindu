@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const app = express()
 
-/* GET reminders listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+let reminders = []
 
-module.exports = router;
+app.get('/api/reminders', (request, response) => {
+  response.json(notes)
+})
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
