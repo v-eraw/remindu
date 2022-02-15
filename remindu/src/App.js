@@ -15,8 +15,8 @@ function App() {
     <div>
       <Search />
         <ul>
-          {posts.map((post) => (
-            <li key={post.id}>{post.name}</li>
+          {reminders.map((reminder) => (
+            <li key={reminder.id}>{reminder.name}</li>
           ))}
         </ul>
     </div>

@@ -5,23 +5,33 @@ var router = express.Router();
 reminders = [ 
   {
     id: "1",
+    name: "name",
     description: "wash your dishes",
     datetime: Date.now(),
     frequency: "daily"
   },
   {
     id: "2",
+    name: "name",
     description: "call your family",
     datetime: Date.now(),
     frequency: "daily"
   },
   {
     id: "3",
+    name: "name",
     description: "book a doctor's appointment",
     datetime: Date.now(),
     frequency: "onetime",
   },
 ]
+
+const generateId = () => {
+  const maxId = reminders.length > 0
+    ? Math.max(...reminders.map(n => n.id))
+    : 0
+  return maxId + 1
+}
 
 reminder_1_details = {
   "reminder" : {
@@ -48,7 +58,6 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   const id = Number(request.params.id)
   const reminder = reminder_1_details
-
   if (reminder) {
     res.json(reminder);
   } else {
@@ -63,14 +72,32 @@ router.put('/:id', function(req, res, next) {
 
 /* POST reminders listing. */
 router.post('/', function(req, res, next) {
-  res.send('respond with a resource');
+  const body = request.body
+
+  if (!body.content) {
+    return response.status(400).json({
+      error: 'content missing'
+    })
+  }
+
+  const reminder = {
+    id: body.id,
+    description: body.description || false,
+    date: new Date(),
+    frequency: body.frequency || "one-time",
+  }
+
+  reminders =  reminders.concat(reminder)
+
+  response.json(reminder)
 });
 
 /* DELETE reminders listing. */
-router.delete('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.delete('/:id', function(req, res, next) {
+  const id = Number(req.params.id)
+  reminders = reminders.filter(reminder => reminder.id !== id)
+
+  res.status(204).end()
 });
-
-
 
 module.exports = router;
