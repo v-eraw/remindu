@@ -25,6 +25,7 @@ WIP: current view
 - [ ] ability to associate emoji with goal
 - [ ] filter to sort by priority/initiative, due date, created date
 - [ ] option to delete all todo associated with a initiative
+- [ ] a point system that for finishing goals u can upgrade ur goal habit tracker LOL like when u first start u only get mid confetti but if u finish a goal u get more confetti and lots of points. 
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
