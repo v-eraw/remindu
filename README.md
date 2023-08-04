@@ -23,6 +23,8 @@ WIP: current view
 - [ ] separate card for long term goals/initivative - u can only have max 4
 - [ ] priority dropdown update - includes goals
 - [ ] ability to associate emoji with goal
+- [ ] filter to sort by priority/initiative, due date, created date
+- [ ] option to delete all todo associated with a initiative
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
