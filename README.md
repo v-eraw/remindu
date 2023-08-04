@@ -1,7 +1,7 @@
 
 WIP: current view
 
-<img width="1313" alt="Screen Shot 2023-08-04 at 4 32 33 PM" src="https://github.com/v-eraw/remindu/assets/23413257/415753f1-686b-4eaa-bc98-6079142e41fb">
+![image](https://github.com/v-eraw/remindu/assets/23413257/54f9bdbe-cc91-4b4f-91c1-3658eaa0bffc)
 
 
 - [x] ability to add todo items with details
