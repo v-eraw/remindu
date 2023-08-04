@@ -17,7 +17,7 @@ WIP: current view
 - [x] trash icon
 - [x] gradient asethetic
 - [x] cute font
-- [ ] moving cloudsu in the background
+- [ ] moving clouds in the background
 - [ ] usable calendar
 - [ ] more intuitive details card
 - [ ] separate card for long term goals/initivative - u can only have max 4
