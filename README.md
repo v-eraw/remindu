@@ -4,6 +4,26 @@ WIP: current view
 <img width="1313" alt="Screen Shot 2023-08-04 at 4 32 33 PM" src="https://github.com/v-eraw/remindu/assets/23413257/415753f1-686b-4eaa-bc98-6079142e41fb">
 
 
+- [x] ability to add todo items with details
+- [x] calendar - just for mvp viewing - no ability to use
+- [x] priority dropdown for todo
+- [ ] due dates and todos show up on the calendar
+- [ ] filter for todo items
+- [ ] option to turn calendar into a point/habit tracker to visualize progress
+- [ ] calculator to project goal sucess + the ability to add goals which can be contributed to by todos (is this just jira??)
+- [x] confetti
+- [ ] singing cats if you finish everything u need to by the end of the day
+- [x] twirling cards
+- [x] trash icon
+- [x] gradient asethetic
+- [x] cute font
+- [ ] moving cloudsu in the background
+- [ ] usable calendar
+- [ ] more intuitive details card
+- [ ] separate card for long term goals/initivative - u can only have max 4
+- [ ] priority dropdown update - includes goals
+- [ ] ability to associate emoji with goal
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
