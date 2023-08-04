@@ -1,42 +1,83 @@
 import React, { useState } from 'react';
-import TodoItem from './TodoItem';
-import styles from './TodoList.module.css';
+import TodoItem from './TodoItem'; // Import the TodoItem component
+import styles from './TodoList.module.css'; // Import your styles
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: 'Complete assignment',
+      priority: 'high',
+      completed: false,
+      createdAt: new Date('2023-08-01'),
+      dueDate: null,
+      notes: '',
+    },
+    // ... add more todo items
+  ]);
 
-  const addTodo = () => {
-    if (newTodo.trim()) {
-      setTodos([...todos, { id: Date.now(), text: newTodo, completed: false }]);
-      setNewTodo('');
+  const [newTodoText, setNewTodoText] = useState('');
+
+  const handleAddTodo = () => {
+    if (newTodoText.trim() !== '') {
+      const newTodo = {
+        id: todos.length + 1,
+        text: newTodoText,
+        priority: 'none',
+        completed: false,
+        createdAt: new Date(),
+        dueDate: null,
+        notes: '',
+      };
+      setTodos([...todos, newTodo]);
+      setNewTodoText('');
     }
   };
 
-  const toggleTodo = (id) => {
-    const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    );
+  // Sort the todos array by priority (high > medium > low > none) and due date
+  const sortedTodos = todos.slice().sort((a, b) => {
+    const priorityOrder = ['high', 'medium', 'low', 'none'];
+    const priorityComparison =
+      priorityOrder.indexOf(a.priority) - priorityOrder.indexOf(b.priority);
+
+    if (priorityComparison !== 0) {
+      return priorityComparison;
+    }
+
+    if (a.dueDate && b.dueDate) {
+      return a.dueDate - b.dueDate;
+    } else if (a.dueDate) {
+      return -1;
+    } else if (b.dueDate) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
+  const handleDeleteTodo = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
 
   return (
-    <div className={styles.todolist}>
-      <h2 className="blue-bubble">To-Do List</h2>
-      <div className={styles.inputContainer}>
+    <div className={styles['todo-list']}>
+      <h1 className="blue-bubble">Todo List</h1>
+      <div className={styles['add-todo-container']}>
         <input
           type="text"
-          placeholder="Add a new task..."
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
+          value={newTodoText}
+          onChange={(e) => setNewTodoText(e.target.value)}
+          placeholder="Enter a new todo..."
+          className={styles['add-todo-input']}
         />
-        <button onClick={addTodo}>Add</button>
+        <button className={styles['add-todo-button']} onClick={handleAddTodo}>
+          Add Todo
+        </button>
       </div>
-      <div className={styles.todos}>
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
-        ))}
-      </div>
+      {sortedTodos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} onDelete={handleDeleteTodo} />
+      ))}
     </div>
   );
 };
