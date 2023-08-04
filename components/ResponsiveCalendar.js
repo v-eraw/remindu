@@ -36,7 +36,7 @@ const ResponsiveCalendar = () => {
 
   return (
     <div>
-      <h2 className='white-bubble'>Calendar</h2>
+      <h2 className='white-bubble'>remindu</h2>
       <div className={styles.container}>
       <Calendar
         className={styles.calendar}
