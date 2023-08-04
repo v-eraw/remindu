@@ -14,3 +14,36 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Borel'; /* Specify your desired font name */
+  src: url('../fonts/Borel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.white-bubble {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 50px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the font thicker */
+  font-family: 'Borel'; /* A cute font example; replace with your preferred cute font */
+  padding: 10px; /* Add padding for a bubble-like appearance */
+  border-radius: 10px; /* Add border radius for the bubble effect */
+  text-align: left;
+  margin: 0px;
+  padding-top: 30px;
+}
+
+.blue-bubble {
+  color: #3498db;
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+  font-size: 40px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the font thicker */
+  font-family: 'Borel'; /* A cute font example; replace with your preferred cute font */
+  padding: 10px; /* Add padding for a bubble-like appearance */
+  border-radius: 10px; /* Add border radius for the bubble effect */
+  text-align: center;
+  margin: 0px;
+}
+
