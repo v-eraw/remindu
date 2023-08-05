@@ -64,7 +64,8 @@
 }
 
 .delete-button:hover{
-  background-color: #ff6b6a;
+  background-color: #ff2424;
+  transform: scale(1.1)
 }
 
 /* TodoItem.module.css */
@@ -92,7 +93,7 @@
 
 
 .details-button {
-  background-color: #00162c; /* Dark blue color */
+  background-color: #004992; /* Dark blue color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -103,7 +104,7 @@
 }
 
 .details-button:hover {
-  background-color: #1a242f; /* Darker blue color on hover */
+  background-color: #007bff; /* Darker blue color on hover */
   transform: scale(1.05); /* Slight scale-up on hover */
 }
 
@@ -122,9 +123,5 @@
 
 .details-button:hover .eye-icon {
   color: white; /* Light gray color on hover */
-}
-
-/* Styling for the scale animation */
-.details-button:hover .eye-icon {
   transform: scale(1.1); /* Slightly larger size on hover */
 }

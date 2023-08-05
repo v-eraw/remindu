@@ -1,13 +1,14 @@
 /* TodoDetailsCard.module.css */
 .details-card {
   width: 100%;
-  background: linear-gradient(135deg, #7513f4, #b700ff);
+  background: linear-gradient(180deg, #5900ff, #ff00ff);
   padding: 10px;
   transition: max-height 0.3s ease-in-out;
   flex-direction: column;
   color: white;
   border-radius: 5px;
   animation: slidingFadeIn 0.25s ease-out forwards;
+  font-family: "Borel";
 }
 
 @keyframes slidingFadeIn {

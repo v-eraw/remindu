@@ -4,13 +4,13 @@ import styles from './TodoDetailsCard.module.css'; // Import your styles
 const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange }) => {
   return (
     <div className={styles['details-card']}>
-      <p>
+      <div>
         <strong>Created at:</strong> {todo.createdAt.toLocaleString()}
-      </p>
-      <p>
+      </div>
+      <div>
         <strong>Due date:</strong>{' '}
         {todo.dueDate ? todo.dueDate.toLocaleDateString() : 'Not set'}
-      </p>
+      </div>
       <div className={styles['edit-notes']}>
         <textarea
           className={styles['notes-input']}
