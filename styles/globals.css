@@ -18,31 +18,31 @@ a {
 @font-face {
   font-family: 'Borel'; /* Specify your desired font name */
   src: url('../fonts/Borel-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
-.white-bubble {
+.background-gradient {
+  display: flex;
+  height: 100%;
+  background: linear-gradient(135deg, #6c5ce7, #3498db, #e0d8ff);
+}
+
+.remindu-title {
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 32x; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the font thicker */
-  font-family: 'Borel'; /* A cute font example; replace with your preferred cute font */
+  font-size: 32px; /* Adjust the font size as needed */
+  font-family: 'Borel';
   text-align: left;
   margin: 0px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
-.blue-bubble {
-  color: #3498db;
-  text-shadow: 2px 2px 4px rgb(255, 255, 255);
-  font-size: 40px; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the font thicker */
-  font-family: 'Borel'; /* A cute font example; replace with your preferred cute font */
-  padding: 0px; /* Add padding for a bubble-like appearance */
-  border-radius: 10px; /* Add border radius for the bubble effect */
+.todo-list-title {
+  color: #3394d5;
+  font-family: 'Borel';
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 32px; /* Adjust the font size as needed */
   text-align: center;
-  margin: 0px;
+  margin-top: 0px;
 }
 

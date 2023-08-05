@@ -55,6 +55,12 @@ const TodoList = () => {
     }
   });
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && newTodoText.trim() !== '') {
+      handleAddTodo();
+    }
+  };
+
   const handleDeleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
@@ -62,7 +68,7 @@ const TodoList = () => {
 
   return (
     <div className={styles['todo-list']}>
-      <h1 className="blue-bubble">Todo List</h1>
+      <div className="todo-list-title">Todo List</div>
       <div className={styles['add-todo-container']}>
         <input
           type="text"
@@ -70,6 +76,7 @@ const TodoList = () => {
           onChange={(e) => setNewTodoText(e.target.value)}
           placeholder="Enter a new todo..."
           className={styles['add-todo-input']}
+          onKeyPress={handleKeyPress}
         />
         <button className={styles['add-todo-button']} onClick={handleAddTodo}>
           Add Todo

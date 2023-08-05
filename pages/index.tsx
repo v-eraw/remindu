@@ -4,14 +4,12 @@ import TodoList from '../components/TodoList';
 
 const HomePage = () => {
   return (
-    <div style={{
-      display: 'flex',
-      height: '100%',
-      background: 'linear-gradient(135deg, #6c5ce7, #3498db, #e0d8ff)',
-    }}
-    >
+    <div className='background-gradient' >
       <div style={{ flex: '2' }}>
-        <Calendar />
+        <div className="remindu-title">remindu</div>
+        <div style={{ flex: '1' }}>
+          <Calendar />
+        </div>
       </div>
       <div style={{ flex: '1' }}>
         <TodoList />

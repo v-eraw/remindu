@@ -54,9 +54,7 @@ const TodoItem = ({ todo, onDelete }) => {
 
   return (
     <div
-      className={`${styles['todo-item']} ${
-        isCompleted ? styles.completed : ''
-      } ${styles['todo-item']} ${isFlashing ? styles.flashing : ''}`}
+      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''}`}
     >
       {confetti && <Confetti />}
       <input
@@ -65,7 +63,14 @@ const TodoItem = ({ todo, onDelete }) => {
         checked={isCompleted}
         onChange={handleToggle}
       />
-      <p className={styles['todo-text']}>{editedTodo.text}</p>
+      <p
+        className={
+          styles['todo-text'] +
+          ` ${styles['todo-item']} ${isCompleted ? styles.completed : ''} `
+        }
+      >
+        {editedTodo.text}
+      </p>
       <div className={styles['todo-priority-container']}>
         <div
           className={styles['todo-priority-marker']}
@@ -89,7 +94,7 @@ const TodoItem = ({ todo, onDelete }) => {
         >
           {isDetailsOpen ? (
             <>
-              <FaEyeSlash className={styles['eye-icon']} />
+              <FaEyeSlash className={styles['eye-icon-closed']} />
             </>
           ) : (
             <>
@@ -120,14 +125,14 @@ export default TodoItem;
 const getPriorityColor = (priority) => {
   switch (priority) {
     case 'none':
-      return 'transparent';
+      return '#ffffff'; // White color for "None"
     case 'low':
-      return '#ff7675'; // Red for low priority
+      return '#2ecc71'; // Green color for "Low"
     case 'medium':
-      return '#fdcb6e'; // Yellow for medium priority
+      return '#f39c12'; // Yellow color for "Medium"
     case 'high':
-      return '#00b894'; // Green for high priority
+      return '#e74c3c'; // Red color for "High"
     default:
-      return 'transparent';
+      return '#000000'; // Default color (black) for unknown priorities
   }
 };

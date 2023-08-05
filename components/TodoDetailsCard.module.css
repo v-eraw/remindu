@@ -8,7 +8,7 @@
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, 50%) rotate(0); /* Initial rotation of 0 degrees */
-    animation: slide-in 0.5s ease-in-out, twirl 1.5s ease-in-out forwards, fade-in 0.5s ease-in-out;
+    animation: slide-in 0.5s ease-in-out, twirl 0.5s ease-in-out forwards, fade-in 0.5s ease-in-out;
     z-index: 9999; /* Set a high z-index value */
   }
   
@@ -23,7 +23,7 @@
   
   @keyframes twirl {
     from {
-      transform: translate(-50%, 50%) rotate(0); /* Initial rotation of 0 degrees */
+      transform: translate(-50%, 50%) rotate(180); /* Initial rotation */
     }
     to {
       transform: translate(-50%, 50%) rotate(360deg); /* Rotate 360 degrees */
