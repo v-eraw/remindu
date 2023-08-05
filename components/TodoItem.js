@@ -4,16 +4,15 @@ import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa';
 import TodoDetailsCard from './TodoDetailsCard'; // Import the new component
 import styles from './TodoItem.module.css';
 
-const TodoItem = ({ todo, onDelete }) => {
-  const [isCompleted, setIsCompleted] = useState(todo.completed);
+const TodoItem = ({ todo, onDelete, onUpdate }) => {
   const [confetti, setConfetti] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [editedTodo, setEditedTodo] = useState({ ...todo });
   const [isFlashing, setIsFlashing] = useState(false);
 
-  const handleToggle = () => {
-    setIsCompleted(!isCompleted);
+  const handleToggleComplete = () => {
+    onUpdate({ ...todo, completed: !todo.completed });
     setConfetti(true);
     setTimeout(() => {
       setConfetti(false);
@@ -53,60 +52,63 @@ const TodoItem = ({ todo, onDelete }) => {
   };
 
   return (
-    <div
-      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''}`}
-    >
-      {confetti && <Confetti />}
-      <input
-        type="checkbox"
-        className={styles['todo-check']}
-        checked={isCompleted}
-        onChange={handleToggle}
-      />
-      <p
-        className={
-          styles['todo-text'] +
-          ` ${styles['todo-item']} ${isCompleted ? styles.completed : ''} `
-        }
+    <div>
+      <div
+        className={`${styles['todo-item']} ${
+          isFlashing ? styles.flashing : ''
+        }`}
       >
-        {editedTodo.text}
-      </p>
-      <div className={styles['todo-priority-container']}>
-        <div
-          className={styles['todo-priority-marker']}
-          style={{ backgroundColor: getPriorityColor(editedTodo.priority) }}
+        {confetti && <Confetti />}
+        <input
+          type="checkbox"
+          className={styles['todo-check']}
+          checked={todo.completed}
+          onChange={handleToggleComplete}
         />
-        <select
-          className={styles['priority-dropdown']}
-          value={editedTodo.priority}
-          onChange={(e) =>
-            setEditedTodo({ ...editedTodo, priority: e.target.value })
+        <p
+          className={
+            styles['todo-text'] +
+            ` ${styles['todo-item']} ${todo.completed ? styles.completed : ''} `
           }
         >
-          <option value="none">None</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-        <button
-          className={styles['details-button']}
-          onClick={handleToggleDetails}
-        >
-          {isDetailsOpen ? (
-            <>
-              <FaEyeSlash className={styles['eye-icon-closed']} />
-            </>
-          ) : (
-            <>
-              <FaEye className={styles['eye-icon']} />
-            </>
-          )}
-        </button>
-        <button className={styles['delete-button']} onClick={handleDelete}>
-          <FaTrash />
-        </button>
+          {editedTodo.text}
+        </p>
+        <div className={styles['todo-priority-container']}>
+          <div
+            className={styles['todo-priority-marker']}
+            style={{ backgroundColor: getPriorityColor(editedTodo.priority) }}
+          />
+          <select
+            className={styles['priority-dropdown']}
+            value={editedTodo.priority}
+            onChange={(e) =>
+              setEditedTodo({ ...editedTodo, priority: e.target.value })
+            }
+          >
+            <option value="none">None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button
+            className={styles['details-button']}
+            onClick={handleToggleDetails}
+          >
+            {isDetailsOpen ? (
+              <>
+                <FaEyeSlash className={styles['eye-icon-closed']} />
+              </>
+            ) : (
+              <>
+                <FaEye className={styles['eye-icon']} />
+              </>
+            )}
+          </button>
+          <button className={styles['delete-button']} onClick={handleDelete}>
+            <FaTrash />
+          </button>
+        </div>
       </div>
-      {/* Details card */}
       {showDetails && (
         <TodoDetailsCard
           todo={editedTodo}

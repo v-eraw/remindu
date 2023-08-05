@@ -20,6 +20,31 @@ a {
   src: url('../fonts/Borel-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Caveat'; /* Specify your desired font name */
+  src: url('../fonts/Caveat.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CherryBombOne'; /* Specify your desired font name */
+  src: url('../fonts/CherryBombOne.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Regular'; /* Specify your desired font name */
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold'; /* Specify your desired font name */
+  src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Handjet'; /* Specify your desired font name */
+  src: url('../fonts/Handjet.ttf') format('truetype');
+}
+
 .background-gradient {
   display: flex;
   height: 100%;
@@ -35,14 +60,5 @@ a {
   margin: 0px;
   padding-top: 20px;
   padding-left: 20px;
-}
-
-.todo-list-title {
-  color: #3394d5;
-  font-family: 'Borel';
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  font-size: 32px; /* Adjust the font size as needed */
-  text-align: center;
-  margin-top: 0px;
 }
 

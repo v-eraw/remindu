@@ -1,43 +1,26 @@
 /* TodoDetailsCard.module.css */
 .details-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    position: fixed;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%) rotate(0); /* Initial rotation of 0 degrees */
-    animation: slide-in 0.5s ease-in-out, twirl 0.5s ease-in-out forwards, fade-in 0.5s ease-in-out;
-    z-index: 9999; /* Set a high z-index value */
+  width: 100%;
+  background: linear-gradient(135deg, #7513f4, #b700ff);
+  padding: 10px;
+  transition: max-height 0.3s ease-in-out;
+  flex-direction: column;
+  color: white;
+  border-radius: 5px;
+  animation: slidingFadeIn 0.25s ease-out forwards;
+}
+
+@keyframes slidingFadeIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  @keyframes slide-in {
-    from {
-      bottom: -100%; /* Start from the bottom */
-    }
-    to {
-      bottom: 50%; /* Centered on the screen vertically */
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  @keyframes twirl {
-    from {
-      transform: translate(-50%, 50%) rotate(180); /* Initial rotation */
-    }
-    to {
-      transform: translate(-50%, 50%) rotate(360deg); /* Rotate 360 degrees */
-    }
-  }
-  
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+}
+
 
   /* TodoItem.module.css */
 .todo-item {
@@ -45,7 +28,63 @@
     position: relative;
   }
 
-  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
 
+  .edit-button,
+  .save-button,
+  .cancel-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .edit-button {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .save-button {
+    background-color: #27ae60;
+    color: white;
+    margin-right: 10px;
+  }
+
+  .cancel-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .notes-input {
+    width: 100%; /* Stretch to fill the width */
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #3498db; /* Border color */
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing */
+    background-color: #fffa86; /* Light background color */
+    transition: border-color 0.3s ease-in-out; /* Add transition for border color */
+    font-family: 'Caveat';
+  }
+  
+  .notes-input:focus {
+    outline: none;
+    border-color: #27ae60; /* Change border color on focus */
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1; /* Visible */
+    }
+    50% {
+      opacity: 0; /* Invisible */
+    }
+  }
   
   

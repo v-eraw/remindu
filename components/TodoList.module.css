@@ -6,10 +6,18 @@
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   margin: 30px;
   height: 94vh; /* Set the maximum height for the container */
+  overflow: auto; 
 }
 
 .add-todo-container {
   display: flex;
+}
+
+.todo-list-title {
+  color: black;
+  font-family: 'Borel';
+  font-size: 24px;
+  text-align: left;
 }
 
 .add-todo-input {

@@ -34,6 +34,12 @@ const TodoList = () => {
     }
   };
 
+  const updateTodo = (updatedTodo) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
+    );
+  };
+
   // Sort the todos array by priority (high > medium > low > none) and due date
   const sortedTodos = todos.slice().sort((a, b) => {
     const priorityOrder = ['high', 'medium', 'low', 'none'];
@@ -68,7 +74,7 @@ const TodoList = () => {
 
   return (
     <div className={styles['todo-list']}>
-      <div className="todo-list-title">Todo List</div>
+      <div className={styles['todo-list-title']}>Todo List</div>
       <div className={styles['add-todo-container']}>
         <input
           type="text"
@@ -83,7 +89,12 @@ const TodoList = () => {
         </button>
       </div>
       {sortedTodos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} onDelete={handleDeleteTodo} />
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onDelete={handleDeleteTodo}
+          onUpdate={updateTodo}
+        />
       ))}
     </div>
   );

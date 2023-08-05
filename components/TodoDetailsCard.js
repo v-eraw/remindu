@@ -4,7 +4,6 @@ import styles from './TodoDetailsCard.module.css'; // Import your styles
 const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange }) => {
   return (
     <div className={styles['details-card']}>
-      <h3>Edit Details</h3>
       <p>
         <strong>Created at:</strong> {todo.createdAt.toLocaleString()}
       </p>
@@ -16,8 +15,8 @@ const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange }) => {
         <textarea
           className={styles['notes-input']}
           value={todo.notes}
-          placeholder="Add notes (up to 200 characters)..."
-          maxLength="200"
+          placeholder="Add notes..."
+          maxLength="1000"
           onChange={(e) => onNotesChange(e.target.value)}
         />
       </div>
