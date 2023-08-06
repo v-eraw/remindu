@@ -3,8 +3,21 @@ import TodoItem from './TodoItem'; // Import the TodoItem component
 import styles from './TodoList.module.css'; // Import your styles
 import { v4 as uuidv4 } from 'uuid';
 import { sortTodos } from '../utils/todoUtils';
+import FilterButton from './FilterButton';
 
 const TodoList = () => {
+  const [filters, setFilters] = useState({
+    red: false,
+    // Add other filter options here
+  });
+
+  const handleFilterChange = (name, checked) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: checked,
+    }));
+  };
+
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -29,17 +42,19 @@ const TodoList = () => {
   const [newTodoText, setNewTodoText] = useState('');
 
   const handleAddTodo = () => {
-    const newTodo = {
-      id: uuidv4(),
-      text: newTodoText,
-      priority: 'none',
-      completed: false,
-      createdAt: new Date(),
-      dueDate: null,
-      notes: '',
-    };
-    setTodos(sortTodos([...todos, newTodo]));
-    setNewTodoText('');
+    if (newTodoText.trim() !== '') {
+      const newTodo = {
+        id: uuidv4(),
+        text: newTodoText,
+        priority: 'none',
+        completed: false,
+        createdAt: new Date(),
+        completedDate: null,
+        notes: '',
+      };
+      setTodos(sortTodos([...todos, newTodo]));
+      setNewTodoText('');
+    }
   };
 
   const updateTodo = (updatedTodo) => {
@@ -63,7 +78,10 @@ const TodoList = () => {
 
   return (
     <div className={styles['todo-list']}>
-      <div className={styles['todo-list-title']}>Todo List</div>
+      <div className={styles['todo-list-header']}>
+        <div className={styles['todo-list-title']}>Todo List</div>
+        <FilterButton onFilterChange={handleFilterChange} />
+      </div>
       <div className={styles['add-todo-container']}>
         <input
           type="text"
