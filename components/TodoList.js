@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem'; // Import the TodoItem component
-import styles from './TodoList.module.css'; // Import your styles
+import styles from './TodoList.module.scss'; // Import your styles
 import FilterButton from './FilterButton';
 import { filterArrayByMap } from '../utils/filterUtils';
 import { connect } from 'react-redux';

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import styles from './Calendar.module.css';
-import './React-Big-Calendar.module.css';
+import styles from './Calendar.module.scss';
 import moment from 'moment';
 import { filterArrayByMap } from '../utils/filterUtils';
 import { connect } from 'react-redux';
@@ -55,7 +54,7 @@ function getPriorityColor(event) {
 
   if (!event.complete) {
     // If the event is not complete, make the color darker
-    color = darkenColor(color, 0.5); // Adjust the darkness factor as needed
+    color = darkenColor(color, 0.7); // Adjust the darkness factor as needed
   }
 
   return color;

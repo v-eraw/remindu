@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TodoDetailsCard.module.css'; // Import your styles
+import styles from './TodoDetailsCard.module.scss'; // Import your styles
 
 const TodoDetailsCard = ({ todo, onNotesChange }) => {
   function formatDate(inputDate) {

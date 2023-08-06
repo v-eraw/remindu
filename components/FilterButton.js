@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './FilterButton.module.css'; // Import your styles
+import styles from './FilterButton.module.scss';
 
 const FilterButton = ({ onFilterChange, filtersMap }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);

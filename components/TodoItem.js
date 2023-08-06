@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Confetti from 'react-confetti';
 import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa';
 import TodoDetailsCard from './TodoDetailsCard'; // Import the new component
-import styles from './TodoItem.module.css';
+import styles from './TodoItem.module.scss';
 import { connect } from 'react-redux';
 import { deleteTodo, updateTodo } from '../actions/todos';
 
