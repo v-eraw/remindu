@@ -10,6 +10,10 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isFlashing, setIsFlashing] = useState(false);
 
+  const handleTextChange = (event) => {
+    onUpdate({ ...todo, text: event.target.textContent });
+  };
+
   const handleToggleComplete = () => {
     const newStatus = !todo.completed;
     onUpdate({
@@ -70,6 +74,7 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
         </div>
         <p
           contentEditable={true}
+          onInput={handleTextChange}
           className={
             styles['todo-text'] +
             ` ${todo.completed ? styles.completed : ''} 

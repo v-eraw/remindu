@@ -24,7 +24,7 @@
   display: flex;
   align-items: center; /* Vertically center align items */
   justify-content: space-between; /* Space items horizontally */
-  padding: 10px; /* Add padding as needed */
+  padding: 5px; /* Add padding as needed */
 }
 
 .add-todo-input {
