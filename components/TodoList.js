@@ -87,6 +87,14 @@ const TodoList = () => {
 
   return (
     <div className={styles['todo-list']}>
+      <div>
+        <iframe
+          src="https://gifer.com/embed/Yw73"
+          width="100%"
+          height="100%"
+          allowFullScreen
+        ></iframe>
+      </div>
       <div className={styles['todo-list-header']}>
         <div className={styles['todo-list-title']}>Todo List</div>
         {todos.length - filterArrayByMap(todos, filters).length > 0 && (
