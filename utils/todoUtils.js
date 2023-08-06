@@ -8,24 +8,24 @@ const priorityOrder = {
   purple: 40,
 };
 
-const compareTodos = (todoA, todoB) => {
+export const compareTodos = (todoA, todoB) => {
   const createdAtA = todoA.createdAt;
   const createdAtB = todoB.createdAt;
-  const completedA = todoA.completed;
-  const completedB = todoB.completed;
+  const completedA = todoA.complete ? -1 : 1;
+  const completedB = todoB.complete ? -1 : 1;
   const priorityA = priorityOrder[todoA.priority];
   const priorityB = priorityOrder[todoB.priority];
+
+  if (completedA > completedB) {
+    return -1;
+  } else if (completedA < completedB) {
+    return 1;
+  }
 
   if (createdAtA > createdAtB) {
     return -1;
   } else if (createdAtA < createdAtB) {
     return 1;
-  }
-
-  if (completedA > completedB) {
-    return 1;
-  } else if (completedA < completedB) {
-    return -1;
   }
 
   if (priorityA > priorityB) {

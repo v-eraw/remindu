@@ -79,20 +79,20 @@ const todosReducer = (state = initialState, action) => {
       };
 
     case UPDATE_TODO:
-      console.log('odl: ');
-      console.log(action.payload);
+      console.log(state.filteredTodos);
+      const newAllTodos = state.allTodos.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
+      );
+
+      const newFilteredTodos = state.filteredTodos.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
+      );
+
+      console.log(sortTodos(newFilteredTodos));
       return {
         ...state,
-        allTodos: sortTodos(
-          state.allTodos.map((todo) =>
-            todo.id === action.payload.id ? action.payload : todo
-          )
-        ),
-        filteredTodos: sortTodos(
-          state.filteredTodos.map((todo) =>
-            todo.id === action.payload.id ? action.payload : todo
-          )
-        ),
+        allTodos: sortTodos(newAllTodos),
+        filteredTodos: sortTodos(newFilteredTodos),
       };
     default:
       return state;

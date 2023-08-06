@@ -4,6 +4,7 @@ import styles from './TodoList.module.css'; // Import your styles
 import FilterButton from './FilterButton';
 import { filterArrayByMap } from '../utils/filterUtils';
 import { connect } from 'react-redux';
+import { sortTodos } from '../utils/todoUtils';
 import {
   addTodo,
   updateTodo,
@@ -80,7 +81,8 @@ class TodoList extends React.Component {
             Add Todo
           </button>
         </div>
-        {filteredTodos.map((todo) => (
+        {console.log(sortTodos(filteredTodos))}
+        {sortTodos(filteredTodos).map((todo) => (
           <TodoItem
             todo={todo}
             updateTodo={this.props.updateTodo}
