@@ -1,34 +1,5 @@
 
-WIP: current view
-
-![image](https://github.com/v-eraw/remindu/assets/23413257/54f9bdbe-cc91-4b4f-91c1-3658eaa0bffc)
-
-
-- [x] ability to add todo items with details
-- [x] calendar - just for mvp viewing - no ability to use
-- [x] priority dropdown for todo
-- [ ] due dates and todos show up on the calendar
-- [ ] filter for todo items
-- [ ] option to turn calendar into a point/habit tracker to visualize progress
-- [ ] calculator to project goal sucess + the ability to add goals which can be contributed to by todos (is this just jira??)
-- [x] confetti
-- [ ] singing cats if you finish everything u need to by the end of the day
-- [x] twirling cards
-- [x] trash icon
-- [x] gradient asethetic
-- [x] cute font
-- [ ] moving clouds in the background
-- [ ] usable calendar
-- [ ] more intuitive details card
-- [ ] separate card for long term goals/initivative - u can only have max 4
-- [ ] priority dropdown update - includes goals
-- [ ] ability to associate emoji with goal
-- [ ] filter to sort by priority/initiative, due date, created date
-- [ ] option to delete all todo associated with a initiative
-- [ ] a point system that for finishing goals u can upgrade ur goal habit tracker LOL like when u first start u only get mid confetti but if u finish a goal u get more confetti and lots of points.
-- [ ] a strobe light show
-- [ ] once you finish a goal u get a medal and then u can look at all ur acquired medals
-
+<img width="1301" alt="Screen Shot 2023-08-05 at 8 55 06 PM" src="https://github.com/v-eraw/remindu/assets/23413257/fadbb3eb-e684-4a41-acfd-f7c24c856afe">
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
