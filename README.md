@@ -1,4 +1,5 @@
-![image](https://github.com/v-eraw/remindu/assets/23413257/54f9bdbe-cc91-4b4f-91c1-3658eaa0bffc)
+
+<img width="1301" alt="Screen Shot 2023-08-05 at 8 55 06 PM" src="https://github.com/v-eraw/remindu/assets/23413257/fadbb3eb-e684-4a41-acfd-f7c24c856afe">
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
