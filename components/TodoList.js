@@ -5,6 +5,7 @@ import FilterButton from './FilterButton';
 import { filterArrayByMap } from '../utils/filterUtils';
 import { connect } from 'react-redux';
 import { sortTodos } from '../utils/todoUtils';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
   addTodo,
   updateTodo,
@@ -47,7 +48,7 @@ class TodoList extends React.Component {
     const { allTodos, filterMap, filteredTodos } = this.props;
 
     return (
-      <div className={styles['todo-list']}>
+      <TransitionGroup className={styles['todo-list']}>
         <div>
           <iframe
             src="https://gifer.com/embed/Yw73"
@@ -81,16 +82,23 @@ class TodoList extends React.Component {
             Add Todo
           </button>
         </div>
-        {console.log(sortTodos(filteredTodos))}
         {filteredTodos.map((todo) => (
-          <TodoItem
+          <CSSTransition
             key={todo.id}
-            todo={todo}
-            updateTodo={this.props.updateTodo}
-            deleteTodo={this.props.deleteTodo}
-          />
+            timeout={300}
+            classNames="slide"
+            appear={true}
+            unmountOnExit={true}
+          >
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              updateTodo={this.props.updateTodo}
+              deleteTodo={this.props.deleteTodo}
+            />
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
     );
   }
 }

@@ -10,30 +10,37 @@ import { filterArrayByMap } from '../utils/filterUtils';
 import { sortTodos } from '../utils/todoUtils';
 
 const initialState = {
-  newTodoText: '',
-  allTodos: [
+  newTodoTitle: '',
+  todos: [
     {
       id: uuidv4(),
-      text: 'hi',
+      title: 'hi',
       priority: 'none',
-      complete: false,
-      createdAt: new Date(),
+      createdDate: new Date(),
       completedDate: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
+      visible: true,
+      complete: false,
       notes: '',
     },
   ],
-  filteredTodos: [],
-  filterMap: {
-    red: false,
-    orange: false,
-    yellow: false,
-    green: false,
-    blue: false,
-    purple: false,
-    none: false,
-    incomplete: false,
-    complete: false,
+  filters: {
+    priorityStatus: {
+      red: false,
+      orange: false,
+      yellow: false,
+      green: false,
+      blue: false,
+      purple: false,
+      none: false,
+    },
+    completeStatus: {
+      incomplete: false,
+      complete: false,
+    },
   },
+  priorities: {},
 };
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
