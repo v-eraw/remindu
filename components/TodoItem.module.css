@@ -15,6 +15,8 @@
 
 .completed {
   background-color: #b0e57c;
+}
+.completedText {
   text-decoration: line-through;
 }
 

@@ -50,14 +50,14 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
 
   return (
     <div
-      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''} ${
-        todo.completed ? styles.completed : ''
-      }`}
+      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''} 
+      ${todo.completed ? styles.completed : ''}
+      `}
     >
       <div
-        className={`${styles['todo-item-not-details']} ${
-          isFlashing ? styles.flashing : ''
-        } ${todo.completed ? styles.completed : ''}`}
+        className={`${styles['todo-item-not-details']} 
+        ${isFlashing ? styles.flashing : ''} 
+        ${todo.completed ? styles.completed : ''}`}
       >
         {confetti && <Confetti />}
         <div className={styles['checkbox-container']}>
@@ -74,6 +74,7 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
             styles['todo-text'] +
             ` ${todo.completed ? styles.completed : ''} 
               ${isFlashing ? styles.flashing : ''}
+              ${todo.completed ? styles.completedText : ''}
             `
           }
         >
