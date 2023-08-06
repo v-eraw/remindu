@@ -55,7 +55,7 @@ function getPriorityColor(event) {
 
   if (!event.complete) {
     // If the event is not complete, make the color darker
-    color = darkenColor(color, 0.3); // Adjust the darkness factor as needed
+    color = darkenColor(color, 0.5); // Adjust the darkness factor as needed
   }
 
   return color;
@@ -100,7 +100,7 @@ function getContrastColor(hexColor) {
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
   // Determine contrast color
-  const contrastColor = luminance < 0.51 ? 'white' : 'black';
+  const contrastColor = luminance < 0.55 ? 'white' : 'black';
   return contrastColor;
 }
 
