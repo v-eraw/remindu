@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TodoDetailsCard.module.css'; // Import your styles
 
-const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
+const TodoDetailsCard = ({ todo, onNotesChange }) => {
   function formatDate(inputDate) {
     const options = {
       weekday: 'long',

@@ -5,16 +5,7 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     '@next/next/no-page-custom-font': 'off',
   },
-  extends: [
-    'next',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'prettier',
-  ],
-  rules: {
-    'prettier/prettier': 'error',
-    // Add more rules or overrides as needed
-  },
+  extends: ['next', 'eslint:recommended', 'prettier'],
   settings: {
     react: {
       version: 'detect',

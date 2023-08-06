@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa';
 import TodoDetailsCard from './TodoDetailsCard'; // Import the new component
 import styles from './TodoItem.module.css';
 
-const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
+const TodoItem = ({ todo, onDelete, onUpdate }) => {
   const [confetti, setConfetti] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -36,15 +36,6 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
 
   const handleNotesChange = (value) => {
     onUpdate({ ...todo, notes: value });
-  };
-
-  const handleDueDateChange = (value) => {
-    onUpdate({ ...todo, dueDate: value });
-  };
-
-  const handleSaveChanges = () => {
-    onUpdate({ ...todo, dueDate: new Date(todo.dueDate) }); // Convert dueDate to Date object
-    setShowDetails(false);
   };
 
   const handleToggleDetails = () => {
@@ -127,13 +118,7 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
         </div>
       </div>
       {showDetails && (
-        <TodoDetailsCard
-          todo={todo}
-          onSave={handleSaveChanges}
-          onNotesChange={handleNotesChange}
-          onDueDateChange={handleDueDateChange}
-          todos={todos}
-        />
+        <TodoDetailsCard todo={todo} onNotesChange={handleNotesChange} />
       )}
     </div>
   );

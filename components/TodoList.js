@@ -6,6 +6,7 @@ import { sortTodos } from '../utils/todoUtils';
 import FilterButton from './FilterButton';
 
 const TodoList = () => {
+  // eslint-disable-next-line no-unused-vars
   const [filters, setFilters] = useState({
     red: false,
     // Add other filter options here
@@ -101,7 +102,6 @@ const TodoList = () => {
           todo={todo}
           onDelete={handleDeleteTodo}
           onUpdate={updateTodo}
-          todos={todos}
         />
       ))}
     </div>
