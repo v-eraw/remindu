@@ -130,7 +130,7 @@ const getPriorityColor = (priority) => {
     case 'none':
       return '#ffffff'; // White color for "None"
     case 'red':
-      return '#e74c3c'; // Red color
+      return '#d44f6b'; // Red color
     case 'orange':
       return '#ff8c00'; // Orange color
     case 'yellow':

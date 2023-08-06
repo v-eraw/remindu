@@ -31,7 +31,7 @@ function getPriorityColor(event) {
 
   switch (event.priority) {
     case 'red':
-      color = '#FF5733'; // Bright Red
+      color = '#d44f6b'; // Bright Red
       break;
     case 'blue':
       color = '#3498DB'; // Bright Blue
