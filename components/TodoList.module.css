@@ -16,7 +16,8 @@
 .todo-list-title {
   color: black;
   font-family: 'Borel';
-  font-size: 18px;
+  font-size: 20px;
+  padding-top: 10px;
   margin: 0; /* Remove default margin from heading */
 }
 

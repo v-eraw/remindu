@@ -3,23 +3,25 @@ import Confetti from 'react-confetti';
 import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa';
 import TodoDetailsCard from './TodoDetailsCard'; // Import the new component
 import styles from './TodoItem.module.css';
+import { connect } from 'react-redux';
+import { deleteTodo, updateTodo } from '../actions/todos';
 
-const TodoItem = ({ todo, onDelete, onUpdate }) => {
+const TodoItem = ({ todo, updateTodo, deleteTodo }) => {
   const [confetti, setConfetti] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isFlashing, setIsFlashing] = useState(false);
 
   const handleTextChange = (event) => {
-    onUpdate({ ...todo, text: event.target.textContent });
+    updateTodo({ ...todo, text: event.target.textContent });
   };
 
   const handleToggleComplete = () => {
-    const newStatus = !todo.complete;
-    onUpdate({
+    const completed = !todo.complete;
+    updateTodo({
       ...todo,
-      complete: newStatus,
-      completedDate: newStatus ? new Date() : null,
+      complete: completed,
+      completedDate: completed ? new Date() : null,
     });
     setConfetti(true);
     setTimeout(() => {
@@ -30,12 +32,12 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   const handleDelete = () => {
     setIsFlashing(true);
     setTimeout(() => {
-      onDelete(todo.id);
+      deleteTodo(todo.id);
     }, 300);
   };
 
   const handleNotesChange = (value) => {
-    onUpdate({ ...todo, notes: value });
+    updateTodo({ ...todo, notes: value });
   };
 
   const handleToggleDetails = () => {
@@ -87,7 +89,7 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
           <select
             className={styles['priority-dropdown']}
             value={todo.priority}
-            onChange={(e) => onUpdate({ ...todo, priority: e.target.value })}
+            onChange={(e) => updateTodo({ ...todo, priority: e.target.value })}
           >
             <option value="none">None</option>
             <option value="red">Red</option>
@@ -123,8 +125,6 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   );
 };
 
-export default TodoItem;
-
 const getPriorityColor = (priority) => {
   switch (priority) {
     case 'none':
@@ -145,3 +145,14 @@ const getPriorityColor = (priority) => {
       return '#ffffff'; // Default color (white) for unknown priorities
   }
 };
+
+const mapStateToProps = (state) => ({
+  todos: state.todos, // Adjust this to your actual state structure
+});
+
+const mapDispatchToProps = {
+  deleteTodo,
+  updateTodo,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);

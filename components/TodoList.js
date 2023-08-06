@@ -1,135 +1,110 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoItem from './TodoItem'; // Import the TodoItem component
 import styles from './TodoList.module.css'; // Import your styles
-import { v4 as uuidv4 } from 'uuid';
-import { sortTodos } from '../utils/todoUtils';
 import FilterButton from './FilterButton';
 import { filterArrayByMap } from '../utils/filterUtils';
+import { connect } from 'react-redux';
+import {
+  addTodo,
+  updateTodo,
+  setFilter,
+  deleteTodo,
+  setNewTodoText,
+} from '../actions/todos';
 
-const TodoList = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [filters, setFilters] = useState({
-    red: false,
-    orange: false,
-    yellow: false,
-    green: false,
-    blue: false,
-    purple: false,
-    none: false,
-    incomplete: false,
-    complete: false,
-  });
+class TodoList extends React.Component {
+  render() {
+    const handleAddTodo = () => {
+      if (this.props.newTodoText.trim() !== '') {
+        this.props.addTodo(); // Change 'default' to the desired priority
+        this.props.setNewTodoText(''); // Clear the input
+      }
+    };
 
-  const handleFilterChange = (name, checked) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: checked,
-    }));
-  };
+    const handleUpdateNewText = (e) => {
+      this.props.setNewTodoText(e.target.value);
+    };
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: 'Complete assignment',
-      priority: 'red',
-      complete: false,
-      createdAt: new Date('2023-08-01'),
-      completedDate: null,
-      notes: '',
-    },
-    {
-      id: 2,
-      text: 'Eat veggies',
-      priority: 'green',
-      complete: true,
-      createdAt: new Date('2023-08-03'),
-      completedDate: new Date('2023-07-24'),
-      notes: '',
-    },
-  ]);
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent form submission
+        if (this.props.newTodoText.trim() !== '') {
+          this.props.addTodo();
+          this.props.setNewTodoText('');
+        }
+      }
+    };
 
-  const [newTodoText, setNewTodoText] = useState('');
-
-  const handleAddTodo = () => {
-    if (newTodoText.trim() !== '') {
-      const newTodo = {
-        id: uuidv4(),
-        text: newTodoText,
-        priority: 'none',
-        complete: false,
-        createdAt: new Date(),
-        completedDate: null,
-        notes: '',
+    const handleFilterChange = (filterName, value) => {
+      const updatedFilterMap = {
+        ...this.props.filterMap,
+        [filterName]: value,
       };
-      setTodos(sortTodos([...todos, newTodo]));
-      setNewTodoText('');
-    }
-  };
+      this.props.setFilter(updatedFilterMap);
+    };
 
-  const updateTodo = (updatedTodo) => {
-    setTodos(
-      sortTodos(
-        todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
-      )
+    const { allTodos, filterMap, filteredTodos, newTodoText } = this.props;
+
+    return (
+      <div className={styles['todo-list']}>
+        <div>
+          <iframe
+            src="https://gifer.com/embed/Yw73"
+            width="100%"
+            height="100%"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className={styles['todo-list-header']}>
+          <div className={styles['todo-list-title']}>Todo List</div>
+          {allTodos.length - filteredTodos.length > 0 && (
+            <div className={styles['hidden-count']}>
+              Hidden: {allTodos.length - filteredTodos.length}
+            </div>
+          )}
+          <FilterButton
+            onFilterChange={handleFilterChange}
+            filtersMap={filterMap}
+          />
+        </div>
+        <div className={styles['add-todo-container']}>
+          <input
+            type="text"
+            value={this.props.newTodoText}
+            onChange={handleUpdateNewText}
+            placeholder="Enter a new todo..."
+            className={styles['add-todo-input']}
+            onKeyPress={handleKeyPress}
+          />
+          <button className={styles['add-todo-button']} onClick={handleAddTodo}>
+            Add Todo
+          </button>
+        </div>
+        {filteredTodos.map((todo) => (
+          <TodoItem
+            todo={todo}
+            updateTodo={this.props.updateTodo}
+            deleteTodo={this.props.deleteTodo}
+          />
+        ))}
+      </div>
     );
-  };
+  }
+}
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && newTodoText.trim() !== '') {
-      handleAddTodo();
-    }
-  };
+const mapStateToProps = (state) => ({
+  allTodos: state.todos.allTodos,
+  filterMap: state.todos.filterMap,
+  filteredTodos: filterArrayByMap(state.todos.allTodos, state.todos.filterMap),
+  newTodoText: state.todos.newTodoText,
+});
 
-  const handleDeleteTodo = (id) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
-  };
-
-  return (
-    <div className={styles['todo-list']}>
-      <div>
-        <iframe
-          src="https://gifer.com/embed/Yw73"
-          width="100%"
-          height="100%"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <div className={styles['todo-list-header']}>
-        <div className={styles['todo-list-title']}>Todo List</div>
-        {todos.length - filterArrayByMap(todos, filters).length > 0 && (
-          <div className={styles['hidden-count']}>
-            Hidden: {todos.length - filterArrayByMap(todos, filters).length}
-          </div>
-        )}
-        <FilterButton
-          onFilterChange={handleFilterChange}
-          filtersMap={filters}
-        />
-      </div>
-      <div className={styles['add-todo-container']}>
-        <input
-          type="text"
-          value={newTodoText}
-          onChange={(e) => setNewTodoText(e.target.value)}
-          placeholder="Enter a new todo..."
-          className={styles['add-todo-input']}
-          onKeyPress={handleKeyPress}
-        />
-        <button className={styles['add-todo-button']} onClick={handleAddTodo}>
-          Add Todo
-        </button>
-      </div>
-      {filterArrayByMap(todos, filters).map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onDelete={handleDeleteTodo}
-          onUpdate={updateTodo}
-        />
-      ))}
-    </div>
-  );
+const mapDispatchToProps = {
+  addTodo,
+  updateTodo,
+  setFilter,
+  deleteTodo,
+  setNewTodoText,
 };
 
-export default TodoList;
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

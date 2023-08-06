@@ -65,11 +65,11 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-off-range {
-  color: #999999;
+  opacity: 0.5; 
 }
 
 .rbc-off-range-bg {
-  background: #e6e6e6;
+  opacity: 0.5; 
 }
 
 .rbc-header {

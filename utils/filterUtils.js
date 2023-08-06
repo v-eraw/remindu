@@ -1,14 +1,3 @@
-const priorities = [
-  'none',
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'purple',
-];
-const completedStatues = ['complete', 'incomplete'];
-
 export function filterArrayByMap(array, filterMap) {
   return array.filter((item) => {
     // Check if the item matches any of the filter conditions
