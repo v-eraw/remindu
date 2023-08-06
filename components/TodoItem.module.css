@@ -1,26 +1,27 @@
-/* TodoItem.module.css */
 .todo-item {
-  display: flex;
-  justify-content: center;
   background-color: white;
   border-radius: 5px;
   padding: 5px;
-  margin: 10px 0;
+  margin: 5px 0;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item-not-details {
+  display: flex;
+  justify-content: center;
+  background-color: white;
 }
 
 .completed {
   text-decoration: line-through;
 }
 
-.todo-check {
-  margin-right: 10px;
-}
-
 .todo-text {
+  padding-left: 10px;
   flex: 1;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
   color: #333;
   word-break: break-word; 
   box-shadow: none;
@@ -35,15 +36,15 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin-right: 10px;
 }
 
 .priority-dropdown {
-  border: none;
   padding: 5px;
+  justify-content: center;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   transition: background-color 0.3s;
   text-decoration: none; 
 }
@@ -68,17 +69,17 @@
   transform: scale(1.1)
 }
 
-/* TodoItem.module.css */
-.todo-item.flashing {
-  animation: flash 0.5s ease-in-out, fade-out 0.5s ease-in-out;
+.flashing {
+  animation: flash 0.3s ease-in-out, fade-out 0.3s ease-in-out;
+  z-index: 1;
 }
 
 @keyframes flash {
   0%, 100% {
-    background-color: initial; /* Original background color */
+    background-color: white;
   }
   50% {
-    background-color: #ff7675; /* Flash color (red) */
+    background-color: rgb(255, 145, 145);
   }
 }
 
@@ -93,7 +94,7 @@
 
 
 .details-button {
-  background-color: #183ea5; /* Dark blue color */
+  background-color: #0064ce; /* Dark blue color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -124,4 +125,12 @@
 .details-button:hover .eye-icon {
   color: white; /* Light gray color on hover */
   transform: scale(1.1); /* Slightly larger size on hover */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }

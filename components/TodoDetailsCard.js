@@ -1,16 +1,27 @@
 import React from 'react';
 import styles from './TodoDetailsCard.module.css'; // Import your styles
 
-const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange }) => {
+const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
+  function calculateDaysDifference(date1, date2) {
+    const oneDayMilliseconds = 1000 * 60 * 60 * 24;
+
+    const timeDifference = Math.abs(date2 - date1);
+    const daysDifference = Math.floor(timeDifference / oneDayMilliseconds);
+
+    return daysDifference;
+  }
+
+  function generateSunEmojis(days) {
+    if (days <= 0) {
+      return '';
+    }
+
+    const sunEmoji = '🌞';
+    return sunEmoji.repeat(days);
+  }
+
   return (
     <div className={styles['details-card']}>
-      <div>
-        <strong>Created at:</strong> {todo.createdAt.toLocaleString()}
-      </div>
-      <div>
-        <strong>Due date:</strong>{' '}
-        {todo.dueDate ? todo.dueDate.toLocaleDateString() : 'Not set'}
-      </div>
       <div className={styles['edit-notes']}>
         <textarea
           className={styles['notes-input']}
@@ -20,13 +31,19 @@ const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange }) => {
           onChange={(e) => onNotesChange(e.target.value)}
         />
       </div>
-      <div className={styles['edit-actions']}>
-        <button className={styles['save-button']} onClick={onSave}>
-          Save
-        </button>
-        <button className={styles['cancel-button']} onClick={onCancel}>
-          Cancel
-        </button>
+      <div>
+        <strong>Created at:</strong> {todo.createdAt.toLocaleString()}
+      </div>
+      <div>
+        <strong>Created day(s) ago:</strong>{' '}
+        {calculateDaysDifference(todo.createdAt, new Date())}
+      </div>
+      <div>
+        {generateSunEmojis(calculateDaysDifference(todo.createdAt, new Date()))}
+      </div>
+      <div>
+        <strong>Due date:</strong>{' '}
+        {todo.dueDate ? todo.dueDate.toLocaleDateString() : 'Not set'}
       </div>
     </div>
   );

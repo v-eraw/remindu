@@ -4,11 +4,10 @@ import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa';
 import TodoDetailsCard from './TodoDetailsCard'; // Import the new component
 import styles from './TodoItem.module.css';
 
-const TodoItem = ({ todo, onDelete, onUpdate }) => {
+const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
   const [confetti, setConfetti] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [editedTodo, setEditedTodo] = useState({ ...todo });
   const [isFlashing, setIsFlashing] = useState(false);
 
   const handleToggleComplete = () => {
@@ -23,26 +22,19 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
     setIsFlashing(true);
     setTimeout(() => {
       onDelete(todo.id);
-    }, 500);
+    }, 300);
   };
 
   const handleNotesChange = (value) => {
-    setEditedTodo({ ...editedTodo, notes: value });
+    onUpdate({ ...todo, notes: value });
   };
 
   const handleDueDateChange = (value) => {
-    setEditedTodo({ ...editedTodo, dueDate: value });
+    onUpdate({ ...todo, dueDate: value });
   };
 
   const handleSaveChanges = () => {
-    // Save editedTodo to state or make API call to save changes
-    // For now, we'll just update the todo state with editedTodo
-    setEditedTodo({ ...editedTodo, dueDate: new Date(editedTodo.dueDate) }); // Convert dueDate to Date object
-    setShowDetails(false);
-  };
-
-  const handleCancelEdit = () => {
-    setEditedTodo({ ...todo });
+    onUpdate({ ...todo, dueDate: new Date(todo.dueDate) }); // Convert dueDate to Date object
     setShowDetails(false);
   };
 
@@ -52,43 +44,55 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   };
 
   return (
-    <div>
+    <div
+      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''}`}
+    >
       <div
-        className={`${styles['todo-item']} ${
+        className={`${styles['todo-item-not-details']} ${
           isFlashing ? styles.flashing : ''
         }`}
       >
         {confetti && <Confetti />}
-        <input
-          type="checkbox"
-          className={styles['todo-check']}
-          checked={todo.completed}
-          onChange={handleToggleComplete}
-        />
+        <div className={styles['checkbox-container']}>
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            onChange={handleToggleComplete}
+            className={styles['custom-checkbox']}
+          />
+        </div>
         <p
+          contentEditable={true}
           className={
             styles['todo-text'] +
-            ` ${styles['todo-item']} ${todo.completed ? styles.completed : ''} `
+            ` ${todo.completed ? styles.completed : ''} 
+              ${isFlashing ? styles.flashing : ''}
+            `
           }
         >
-          {editedTodo.text}
+          {todo.text}
         </p>
         <div className={styles['todo-priority-container']}>
           <div
-            className={styles['todo-priority-marker']}
-            style={{ backgroundColor: getPriorityColor(editedTodo.priority) }}
+            className={
+              styles['todo-priority-marker'] +
+              `${isFlashing ? styles.flashing : ''}`
+            }
+            style={{ backgroundColor: getPriorityColor(todo.priority) }}
           />
           <select
             className={styles['priority-dropdown']}
-            value={editedTodo.priority}
-            onChange={(e) =>
-              setEditedTodo({ ...editedTodo, priority: e.target.value })
-            }
+            value={todo.priority}
+            onChange={(e) => onUpdate({ ...todo, priority: e.target.value })}
           >
             <option value="none">None</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="black">Black</option>
           </select>
           <button
             className={styles['details-button']}
@@ -111,11 +115,11 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
       </div>
       {showDetails && (
         <TodoDetailsCard
-          todo={editedTodo}
-          onCancel={handleCancelEdit}
+          todo={todo}
           onSave={handleSaveChanges}
           onNotesChange={handleNotesChange}
           onDueDateChange={handleDueDateChange}
+          todos={todos}
         />
       )}
     </div>
@@ -128,13 +132,21 @@ const getPriorityColor = (priority) => {
   switch (priority) {
     case 'none':
       return '#ffffff'; // White color for "None"
-    case 'low':
-      return '#2ecc71'; // Green color for "Low"
-    case 'medium':
-      return '#f39c12'; // Yellow color for "Medium"
-    case 'high':
-      return '#e74c3c'; // Red color for "High"
+    case 'red':
+      return '#e74c3c'; // Red color
+    case 'orange':
+      return '#ff8c00'; // Orange color
+    case 'yellow':
+      return '#f1c40f'; // Yellow color
+    case 'green':
+      return '#2ecc71'; // Green color
+    case 'blue':
+      return '#3498db'; // Blue color
+    case 'purple':
+      return '#9b59b6'; // Purple color
+    case 'black':
+      return '#000000';
     default:
-      return '#000000'; // Default color (black) for unknown priorities
+      return '#ffffff'; // Default color (white) for unknown priorities
   }
 };
