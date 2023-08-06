@@ -76,7 +76,7 @@ function darkenColor(color, factor) {
     .padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
 }
 
-const customEventPropGetter = (event, start, end, isSelected) => {
+const customEventPropGetter = (event) => {
   const backgroundColor = getPriorityColor(event);
   const textColor = getContrastColor(backgroundColor);
 
@@ -114,9 +114,9 @@ class ResponsiveCalendar extends React.Component {
   }
   render() {
     const handleDateChange = (date) => {
-      setSelectedDate(date);
+      this.state.selectedDate(date);
     };
-    const { allTodos, filterMap, filteredTodos, newTodoText } = this.props;
+    const { filteredTodos } = this.props;
 
     return (
       <div>

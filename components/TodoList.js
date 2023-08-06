@@ -44,7 +44,7 @@ class TodoList extends React.Component {
       this.props.setFilter(updatedFilterMap);
     };
 
-    const { allTodos, filterMap, filteredTodos, newTodoText } = this.props;
+    const { allTodos, filterMap, filteredTodos } = this.props;
 
     return (
       <div className={styles['todo-list']}>
@@ -82,8 +82,9 @@ class TodoList extends React.Component {
           </button>
         </div>
         {console.log(sortTodos(filteredTodos))}
-        {sortTodos(filteredTodos).map((todo) => (
+        {filteredTodos.map((todo) => (
           <TodoItem
+            key={todo.id}
             todo={todo}
             updateTodo={this.props.updateTodo}
             deleteTodo={this.props.deleteTodo}

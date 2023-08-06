@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from '../components/ResponsiveCalendar';
 import TodoList from '../components/TodoList';
 
