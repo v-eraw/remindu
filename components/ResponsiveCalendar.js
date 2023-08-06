@@ -100,7 +100,7 @@ function getContrastColor(hexColor) {
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
   // Determine contrast color
-  const contrastColor = luminance < 0.55 ? 'white' : 'black';
+  const contrastColor = luminance < 0.51 ? 'white' : 'black';
   return contrastColor;
 }
 
