@@ -46,3 +46,18 @@
 .add-todo-button:hover {
   background-color: #339143; /* Slightly darker green on hover */
 }
+
+/* Styles for the hidden count badge */
+.hidden-count {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 5px 10px;
+  background-color: #ff6347; /* Red color, you can customize */
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 999;
+}
+

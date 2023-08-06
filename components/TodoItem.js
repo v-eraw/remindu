@@ -15,10 +15,10 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   };
 
   const handleToggleComplete = () => {
-    const newStatus = !todo.completed;
+    const newStatus = !todo.complete;
     onUpdate({
       ...todo,
-      completed: newStatus,
+      complete: newStatus,
       completedDate: newStatus ? new Date() : null,
     });
     setConfetti(true);
@@ -46,19 +46,19 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   return (
     <div
       className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''} 
-      ${todo.completed ? styles.completed : ''}
+      ${todo.complete ? styles.completed : ''}
       `}
     >
       <div
         className={`${styles['todo-item-not-details']} 
         ${isFlashing ? styles.flashing : ''} 
-        ${todo.completed ? styles.completed : ''}`}
+        ${todo.complete ? styles.completed : ''}`}
       >
         {confetti && <Confetti />}
         <div className={styles['checkbox-container']}>
           <input
             type="checkbox"
-            checked={todo.completed}
+            checked={todo.complete}
             onChange={handleToggleComplete}
             className={styles['custom-checkbox']}
           />
@@ -68,9 +68,9 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
           onInput={handleTextChange}
           className={
             styles['todo-text'] +
-            ` ${todo.completed ? styles.completed : ''} 
+            ` ${todo.complete ? styles.completed : ''} 
               ${isFlashing ? styles.flashing : ''}
-              ${todo.completed ? styles.completedText : ''}
+              ${todo.complete ? styles.completedText : ''}
             `
           }
         >
@@ -96,7 +96,6 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
             <option value="green">Green</option>
             <option value="blue">Blue</option>
             <option value="purple">Purple</option>
-            <option value="black">Black</option>
           </select>
           <button
             className={styles['details-button']}
@@ -142,8 +141,6 @@ const getPriorityColor = (priority) => {
       return '#3498db'; // Blue color
     case 'purple':
       return '#9b59b6'; // Purple color
-    case 'black':
-      return '#000000';
     default:
       return '#ffffff'; // Default color (white) for unknown priorities
   }

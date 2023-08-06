@@ -4,12 +4,20 @@ import styles from './TodoList.module.css'; // Import your styles
 import { v4 as uuidv4 } from 'uuid';
 import { sortTodos } from '../utils/todoUtils';
 import FilterButton from './FilterButton';
+import { filterArrayByMap } from '../utils/filterUtils';
 
 const TodoList = () => {
   // eslint-disable-next-line no-unused-vars
   const [filters, setFilters] = useState({
     red: false,
-    // Add other filter options here
+    orange: false,
+    yellow: false,
+    green: false,
+    blue: false,
+    purple: false,
+    none: false,
+    incomplete: false,
+    complete: false,
   });
 
   const handleFilterChange = (name, checked) => {
@@ -24,7 +32,7 @@ const TodoList = () => {
       id: 1,
       text: 'Complete assignment',
       priority: 'red',
-      completed: false,
+      complete: false,
       createdAt: new Date('2023-08-01'),
       completedDate: null,
       notes: '',
@@ -33,7 +41,7 @@ const TodoList = () => {
       id: 2,
       text: 'Eat veggies',
       priority: 'green',
-      completed: true,
+      complete: true,
       createdAt: new Date('2023-08-03'),
       completedDate: new Date('2023-07-24'),
       notes: '',
@@ -48,7 +56,7 @@ const TodoList = () => {
         id: uuidv4(),
         text: newTodoText,
         priority: 'none',
-        completed: false,
+        complete: false,
         createdAt: new Date(),
         completedDate: null,
         notes: '',
@@ -81,7 +89,15 @@ const TodoList = () => {
     <div className={styles['todo-list']}>
       <div className={styles['todo-list-header']}>
         <div className={styles['todo-list-title']}>Todo List</div>
-        <FilterButton onFilterChange={handleFilterChange} />
+        {todos.length - filterArrayByMap(todos, filters).length > 0 && (
+          <div className={styles['hidden-count']}>
+            Hidden: {todos.length - filterArrayByMap(todos, filters).length}
+          </div>
+        )}
+        <FilterButton
+          onFilterChange={handleFilterChange}
+          filtersMap={filters}
+        />
       </div>
       <div className={styles['add-todo-container']}>
         <input
@@ -96,7 +112,7 @@ const TodoList = () => {
           Add Todo
         </button>
       </div>
-      {todos.map((todo) => (
+      {filterArrayByMap(todos, filters).map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}

@@ -49,7 +49,7 @@ const TodoDetailsCard = ({ todo, onNotesChange }) => {
       <div>
         <strong>Created at:</strong> {formatDate(todo.createdAt)}
       </div>
-      {!todo.completed && (
+      {!todo.complete && (
         <div>
           <div>
             <strong>Created day(s) ago:</strong>{' '}
@@ -64,7 +64,7 @@ const TodoDetailsCard = ({ todo, onNotesChange }) => {
 
       <div>
         <strong>Completed:</strong>{' '}
-        {todo.completedDate ? formatDate(todo.completedDate) : 'Not yet.'}
+        {todo.complete ? formatDate(todo.completedDate) : 'Not yet.'}
       </div>
     </div>
   );
