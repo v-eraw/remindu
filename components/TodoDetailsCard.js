@@ -2,6 +2,21 @@ import React from 'react';
 import styles from './TodoDetailsCard.module.css'; // Import your styles
 
 const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
+  function formatDate(inputDate) {
+    const options = {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    };
+
+    const formattedDate = new Date(inputDate).toLocaleString('en-US', options);
+    return formattedDate;
+  }
+
   function calculateDaysDifference(date1, date2) {
     const oneDayMilliseconds = 1000 * 60 * 60 * 24;
 
@@ -32,7 +47,7 @@ const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
         />
       </div>
       <div>
-        <strong>Created at:</strong> {todo.createdAt.toLocaleString()}
+        <strong>Created at:</strong> {formatDate(todo.createdAt)}
       </div>
       <div>
         <strong>Created day(s) ago:</strong>{' '}
@@ -42,8 +57,8 @@ const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
         {generateSunEmojis(calculateDaysDifference(todo.createdAt, new Date()))}
       </div>
       <div>
-        <strong>Due date:</strong>{' '}
-        {todo.dueDate ? todo.dueDate.toLocaleDateString() : 'Not set'}
+        <strong>Completed:</strong>{' '}
+        {todo.completedDate ? formatDate(todo.completedDate) : 'Not yet.'}
       </div>
     </div>
   );

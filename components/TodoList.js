@@ -9,10 +9,19 @@ const TodoList = () => {
     {
       id: 1,
       text: 'Complete assignment',
-      priority: 'high',
-      completed: false,
+      priority: 'red',
+      completed: true,
       createdAt: new Date('2023-08-01'),
-      dueDate: new Date('2023-08-01'),
+      completedDate: new Date('2023-08-01'),
+      notes: '',
+    },
+    {
+      id: 2,
+      text: 'Eat veggies',
+      priority: 'green',
+      completed: false,
+      createdAt: new Date('2023-08-03'),
+      completedDate: null,
       notes: '',
     },
   ]);

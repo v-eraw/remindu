@@ -11,7 +11,12 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
   const [isFlashing, setIsFlashing] = useState(false);
 
   const handleToggleComplete = () => {
-    onUpdate({ ...todo, completed: !todo.completed });
+    const newStatus = !todo.completed;
+    onUpdate({
+      ...todo,
+      completed: newStatus,
+      completedDate: newStatus ? new Date() : null,
+    });
     setConfetti(true);
     setTimeout(() => {
       setConfetti(false);

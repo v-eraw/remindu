@@ -4,7 +4,7 @@ interface Todo {
   priority: 'low' | 'medium' | 'high';
   completed: boolean;
   createdAt: Date;
-  dueDate: Date;
+  completedDate: Date;
   notes: string;
 }
 
