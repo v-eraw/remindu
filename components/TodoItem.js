@@ -21,7 +21,7 @@ const TodoItem = ({ todo, updateTodo, deleteTodo }) => {
     updateTodo({
       ...todo,
       complete: completed,
-      completedDate: completed ? new Date() : null,
+      completedDate: completed ? new Date() : todo.createdAt,
     });
     setConfetti(true);
     setTimeout(() => {

@@ -6,7 +6,7 @@
   color: black;
   border-radius: 10px;
   animation: slidingFadeIn 0.1s ease-out forwards;
-  font-family: "Caveat";
+  font-size: 12px;
 }
 
 @keyframes slidingFadeIn {

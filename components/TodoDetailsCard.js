@@ -49,6 +49,9 @@ const TodoDetailsCard = ({ todo, onNotesChange }) => {
       <div>
         <strong>Created:</strong> {formatDate(todo.createdAt)}
       </div>
+      <div>
+        <strong>Completed:</strong> {formatDate(todo.completedDate)}
+      </div>
       {!todo.complete && (
         <div>
           <div>
