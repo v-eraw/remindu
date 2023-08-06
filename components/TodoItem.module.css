@@ -14,6 +14,7 @@
 }
 
 .completed {
+  background-color: #b0e57c;
   text-decoration: line-through;
 }
 

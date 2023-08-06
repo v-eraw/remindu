@@ -49,13 +49,19 @@ const TodoDetailsCard = ({ todo, onCancel, onSave, onNotesChange, todos }) => {
       <div>
         <strong>Created at:</strong> {formatDate(todo.createdAt)}
       </div>
-      <div>
-        <strong>Created day(s) ago:</strong>{' '}
-        {calculateDaysDifference(todo.createdAt, new Date())}
-      </div>
-      <div>
-        {generateSunEmojis(calculateDaysDifference(todo.createdAt, new Date()))}
-      </div>
+      {!todo.completed && (
+        <div>
+          <div>
+            <strong>Created day(s) ago:</strong>{' '}
+            {calculateDaysDifference(todo.createdAt, new Date())}
+            &nbsp;
+            {generateSunEmojis(
+              calculateDaysDifference(todo.createdAt, new Date())
+            )}
+          </div>
+        </div>
+      )}
+
       <div>
         <strong>Completed:</strong>{' '}
         {todo.completedDate ? formatDate(todo.completedDate) : 'Not yet.'}

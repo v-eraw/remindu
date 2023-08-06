@@ -1,5 +1,3 @@
-import Todo from '../models/Todo';
-
 const priorityOrder = {
   red: 100,
   orange: 80,
@@ -11,10 +9,17 @@ const priorityOrder = {
   none: 110,
 };
 
-const compareTodosByPriority = (todoA, todoB) => {
+const compareTodos = (todoA, todoB) => {
+  const completedA = todoA.completed;
+  const completedB = todoB.completed;
   const priorityA = priorityOrder[todoA.priority];
   const priorityB = priorityOrder[todoB.priority];
 
+  if (completedA > completedB) {
+    return 1;
+  } else if (completedA < completedB) {
+    return -1;
+  }
   if (priorityA > priorityB) {
     return -1;
   } else if (priorityA < priorityB) {
@@ -24,5 +29,5 @@ const compareTodosByPriority = (todoA, todoB) => {
 };
 
 export const sortTodos = (todos) => {
-  return todos.sort(compareTodosByPriority);
+  return todos.sort(compareTodos);
 };

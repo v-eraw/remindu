@@ -50,12 +50,14 @@ const TodoItem = ({ todo, onDelete, onUpdate, todos }) => {
 
   return (
     <div
-      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''}`}
+      className={`${styles['todo-item']} ${isFlashing ? styles.flashing : ''} ${
+        todo.completed ? styles.completed : ''
+      }`}
     >
       <div
         className={`${styles['todo-item-not-details']} ${
           isFlashing ? styles.flashing : ''
-        }`}
+        } ${todo.completed ? styles.completed : ''}`}
       >
         {confetti && <Confetti />}
         <div className={styles['checkbox-container']}>
