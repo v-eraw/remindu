@@ -49,14 +49,7 @@ class TodoList extends React.Component {
 
     return (
       <TransitionGroup className={styles['todo-list']}>
-        <div>
-          <iframe
-            src="https://gifer.com/embed/Yw73"
-            width="100%"
-            height="100%"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <div></div>
         <div className={styles['todo-list-header']}>
           <div className={styles['todo-list-title']}>Todo List</div>
           {countHiddenTodos(todos) > 0 && (

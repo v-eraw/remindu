@@ -104,15 +104,15 @@ const gradientAnimationDetails = keyframes`
 const getGradientColors = (timeOfDayClass: string) => {
   switch (timeOfDayClass) {
     case 'dawn':
-      return '#FFD700, #FFA500, #FF6347, #FFD700, #FFA500, #FF6347, #FFD700, #FFA500, #FF6347';
+      return '#FFD700, #FFA500, #FF6347, #FFD700, #FFA500, #FF6347';
     case 'morning':
-      return '#00FF7F, #00CED1, #87CEFA, #00FF7F, #00CED1, #87CEFA, #00FF7F, #00CED1, #87CEFA';
+      return '#00FF7F, #00CED1, #87CEFA, #00FF7F, #00CED1, #87CEFA';
     case 'afternoon':
       return '#FF4500, #FF69B4, #FFD700, #87CEEB, #40E0D0, #1E90FF';
     case 'dusk':
-      return '#FF1493, #FF00FF, #9370DB, #FF1493, #FF00FF, #9370DB, #FF1493, #FF00FF, #9370DB';
+      return '#FF1493, #FF00FF, #9370DB, #FF1493, #FF00FF, #9370DB';
     case 'night':
-      return '#4B0082, #483D8B, #000080, #4B0082, #483D8B, #000080, #4B0082, #483D8B, #000080';
+      return '#4B0082, #483D8B, #000080, #4B0082, #483D8B, #000080';
     default:
       return '';
   }
