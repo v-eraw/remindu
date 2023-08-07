@@ -3,7 +3,7 @@ import {
   UPDATE_TODO,
   DELETE_TODO,
   SET_FILTER,
-  SET_NEW_TODO_TEXT,
+  SET_NEW_TODO_TITLE,
 } from './types';
 
 export const setFilter = (filterMap) => ({
@@ -26,7 +26,7 @@ export const updateTodo = (todo) => ({
   payload: todo,
 });
 
-export const setNewTodoText = (text) => ({
-  type: SET_NEW_TODO_TEXT,
-  payload: text,
+export const setNewTodoTitle = (title) => ({
+  type: SET_NEW_TODO_TITLE,
+  payload: title,
 });

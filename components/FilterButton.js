@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './FilterButton.module.scss';
+import styles from '../styles/FilterButton.module.scss';
 
-const FilterButton = ({ onFilterChange, filtersMap }) => {
+const FilterButton = ({ onFilterChange, filtersMap, priorityMap }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -31,87 +31,17 @@ const FilterButton = ({ onFilterChange, filtersMap }) => {
       </button>
       {dropdownVisible && (
         <div className={styles.dropdown}>
-          <label>
-            <label>
+          {Object.keys(priorityMap).map((priority) => (
+            <label key={priority}>
               <input
-                checked={filtersMap.complete}
+                checked={filtersMap[priority]}
                 type="checkbox"
-                name="complete"
+                name={priority}
                 onChange={handleFilterChange}
               />
-              Complete
+              {priorityMap[priority].title}
             </label>
-            <label>
-              <input
-                checked={filtersMap.incomplete}
-                type="checkbox"
-                name="incomplete"
-                onChange={handleFilterChange}
-              />
-              Incomplete
-            </label>
-            <label>
-              <input
-                checked={filtersMap.none}
-                type="checkbox"
-                name="none"
-                onChange={handleFilterChange}
-              />
-              None
-            </label>
-            <input
-              checked={filtersMap.red}
-              type="checkbox"
-              name="red"
-              onChange={handleFilterChange}
-            />
-            Red
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={filtersMap.orange}
-              name="orange"
-              onChange={handleFilterChange}
-            />
-            Orange
-          </label>
-          <label>
-            <input
-              checked={filtersMap.yellow}
-              type="checkbox"
-              name="yellow"
-              onChange={handleFilterChange}
-            />
-            Yellow
-          </label>
-          <label>
-            <input
-              checked={filtersMap.green}
-              type="checkbox"
-              name="green"
-              onChange={handleFilterChange}
-            />
-            Green
-          </label>
-          <label>
-            <input
-              checked={filtersMap.blue}
-              type="checkbox"
-              name="blue"
-              onChange={handleFilterChange}
-            />
-            Blue
-          </label>
-          <label>
-            <input
-              checked={filtersMap.purple}
-              type="checkbox"
-              name="purple"
-              onChange={handleFilterChange}
-            />
-            Purple
-          </label>
+          ))}
         </div>
       )}
     </div>

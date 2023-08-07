@@ -4,10 +4,11 @@ import {
   SET_FILTER,
   UPDATE_TODO,
   DELETE_TODO,
-  SET_NEW_TODO_TEXT,
+  SET_NEW_TODO_TITLE,
 } from '../actions/types';
-import { filterArrayByMap } from '../utils/filterUtils';
-import { sortTodos } from '../utils/todoUtils';
+import { sortTodos } from '../utils/sortUtils';
+import priorities from '../utils/priorities';
+import { applyVisibleFilterToTodo } from '../utils/filterUtils';
 
 const initialState = {
   newTodoTitle: '',
@@ -40,66 +41,53 @@ const initialState = {
       complete: false,
     },
   },
-  priorities: {},
+  priorities: priorities,
 };
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_NEW_TODO_TEXT:
+    case SET_NEW_TODO_TITLE:
       return {
         ...state,
-        newTodoText: action.payload,
+        newTodoTitle: action.payload,
       };
     case SET_FILTER:
       return {
         ...state,
-        filterMap: action.payload,
-        filteredTodos: sortTodos(
-          filterArrayByMap(state.allTodos, state.filterMap)
-        ),
+        filters: action.payload,
+        todos: sortTodos(applyVisibleFilterTodos(state.todos, action.payload)),
       };
     case ADD_TODO:
       const newTodo = {
         id: uuidv4(),
-        text: state.newTodoText,
+        title: state.newTodoTitle,
         priority: 'none',
-        complete: false,
-        createdAt: new Date(),
+        createdDate: new Date(),
         completedDate: new Date(),
-        notes: '',
+        startDate: new Date(),
+        endDate: new Date(new Date().getTime() + 60 * 60 * 1000),
+        visible: true,
+        complete: false,
       };
+      newTodo = applyVisibleFilterToTodo(newTodo, state.filters);
       return {
         ...state,
-        allTodos: sortTodos([...state.allTodos, newTodo]),
-        filteredTodos: sortTodos(
-          filterArrayByMap([...state.allTodos, newTodo], state.filterMap)
-        ),
+        todos: sortTodos([...state.todos, newTodo]),
       };
     case DELETE_TODO:
       return {
         ...state,
-        allTodos: sortTodos(
-          state.allTodos.filter((todo) => todo.id !== action.payload.id)
-        ),
-        filteredTodos: sortTodos(
-          state.filteredTodos.filter((todo) => todo.id !== action.payload.id)
+        todos: sortTodos(
+          state.todos.filter((todo) => todo.id !== action.payload.id)
         ),
       };
-
     case UPDATE_TODO:
-      console.log(state.filteredTodos);
-      const newAllTodos = state.allTodos.map((todo) =>
+      const updatedTodos = state.todos.map((todo) =>
         todo.id === action.payload.id ? action.payload : todo
       );
-
-      const newFilteredTodos = state.filteredTodos.map((todo) =>
-        todo.id === action.payload.id ? action.payload : todo
-      );
-
-      console.log(sortTodos(newFilteredTodos));
+      updateTodos = applyVisibleFilterToTodo(updatedTodos, state.filters);
       return {
         ...state,
-        allTodos: sortTodos(newAllTodos),
-        filteredTodos: sortTodos(newFilteredTodos),
+        todos: sortTodos(updatedTodos),
       };
     default:
       return state;

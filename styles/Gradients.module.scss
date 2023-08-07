@@ -1,0 +1,79 @@
+.background-gradient {
+  display: flex;
+  height: 100vh;
+}
+
+/* Dawn Gradient */
+@keyframes dawnAnimation {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 0% 100%;
+    }
+  }
+  
+  .dawn {
+    animation: dawnAnimation 20s ease infinite;
+    background: linear-gradient(to bottom, #fff3e1, #ffc785, #ffae63);
+  }
+  
+  /* Morning Gradient */
+  @keyframes morningAnimation {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 0% 100%;
+    }
+  }
+  
+  .morning {
+    animation: morningAnimation 20s ease infinite;
+    background: linear-gradient(to bottom, #b1e693, #a8e6cf, #c2e9e9);
+  }
+  
+  /* Afternoon Gradient */
+  @keyframes afternoonAnimation {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 100%;
+    }
+  }
+  
+  .afternoon {
+    animation: afternoonAnimation 20s ease infinite;
+    background: linear-gradient(135deg, #ffb6b9, #fad0c4, #f9d5e5, #d4e9f2, #b7c9e8, #b7bae8);
+  }
+  
+  /* Dusk Gradient */
+  @keyframes duskAnimation {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 0% 100%;
+    }
+  }
+  
+  .dusk {
+    animation: duskAnimation 20s ease infinite;
+    background: linear-gradient(to bottom, #ff8a65, #ff5f6d, #ad5389);
+  }
+  
+  /* Night Gradient */
+  @keyframes nightAnimation {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 100%;
+    }
+  }
+  
+  .night {
+    animation: nightAnimation 20s ease infinite;
+    background: linear-gradient(135deg, #2c3e50, #293241, #1e1e24);
+  }

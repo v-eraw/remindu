@@ -46,12 +46,6 @@ a {
   src: url('../fonts/Handjet.ttf') format('truetype');
 }
 
-.background-gradient {
-  display: flex;
-  height: 100%;
-  background: linear-gradient(135deg, #6c5ce7, #3498db, #e0d8ff);
-}
-
 .remindu-title {
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
