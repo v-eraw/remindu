@@ -5,7 +5,7 @@
   border-radius: 10px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   margin: 30px;
-  height: 94vh; /* Set the maximum height for the container */
+  max-height: 90vh; /* Set the maximum height for the container */
   overflow: auto; 
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   align-items: center; /* Vertically center align items */
   justify-content: space-between; /* Space items horizontally */
-  padding: 5px; /* Add padding as needed */
+  padding: 10px;
 }
 
 .add-todo-input {

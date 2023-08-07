@@ -49,7 +49,6 @@ class TodoList extends React.Component {
 
     return (
       <TransitionGroup className={styles['todo-list']}>
-        <div></div>
         <div className={styles['todo-list-header']}>
           <div className={styles['todo-list-title']}>Todo List</div>
           {countHiddenTodos(todos) > 0 && (

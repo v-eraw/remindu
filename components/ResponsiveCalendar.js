@@ -66,7 +66,7 @@ class ResponsiveCalendar extends React.Component {
     const { filteredTodos } = this.props;
 
     return (
-      <div>
+      <div className={styles.center}>
         <div className={styles.container}>
           <Calendar
             className={styles.calendar}
