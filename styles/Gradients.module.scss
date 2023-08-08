@@ -4,28 +4,33 @@
     background: linear-gradient(to bottom, #fff3e1, #ffc785, #ffae63);
     display: flex;
     height: 100vh;
+    flex-direction: column;
   }
   
   .morning {
     background:  #1a5a84;
     display: flex;
     height: 100vh;
+    flex-direction: column;
   }
 
   .afternoon {
     background: linear-gradient(135deg, #ffb6b9, #fad0c4, #f9d5e5, #d4e9f2, #b7c9e8, #b7bae8);
     display: flex;
     height: 100vh;
+    flex-direction: column;
   }
   
   .dusk {
     background: linear-gradient(to bottom, #ff8a65, #ff5f6d, #ad5389);
     display: flex;
     height: 100vh;
+    flex-direction: column;
   }
   
   .night {
     background: linear-gradient(135deg, #2c3e50, #293241, #1e1e24);
     display: flex;
     height: 100vh;
+    flex-direction: column;
   }

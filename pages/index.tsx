@@ -43,12 +43,14 @@ class HomePage extends Component<{}, HomePageState> {
 
     return (
       <div className={styles[`${timeOfDayClass}`]}>
-        <div style={{ flex: 2 }}>
-          <div className="remindu-title">remindu</div>
-          <Calendar />
-        </div>
-        <div style={{ flex: 1 }}>
-          <TodoList />
+        <div className="remindu-title">remindu</div>
+        <div style={{ display: `flex` }}>
+          <div style={{ flex: 2 }}>
+            <Calendar />
+          </div>
+          <div style={{ flex: 1 }}>
+            <TodoList />
+          </div>
         </div>
       </div>
     );
