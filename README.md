@@ -1,3 +1,4 @@
+[WIP] currently under huge renovations + not working cause of that but on hold bc I'm working on something else atm
 
 <img width="1301" alt="Screen Shot 2023-08-05 at 8 55 06 PM" src="https://github.com/v-eraw/remindu/assets/23413257/fadbb3eb-e684-4a41-acfd-f7c24c856afe">
 
