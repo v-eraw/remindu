@@ -1,5 +1,5 @@
 [WIP] currently under huge renovations + i need to fix the font + put on hold bc I'm working on something else atm
-also when you complete a task confetti rains down from the sky don't say I can't innovate
+also when you complete a task confetti rains down from the sky don't say I can't innovate smh
 
 <img width="1301" alt="Screen Shot 2023-08-05 at 8 55 06 PM" src="https://github.com/v-eraw/remindu/assets/23413257/fadbb3eb-e684-4a41-acfd-f7c24c856afe">
 
