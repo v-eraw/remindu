@@ -28,6 +28,18 @@ This document provides a detailed overview of the Remindu project structure, arc
 - API routes should be in `/pages/api`
 - Each API route should handle one specific endpoint
 
+### Main App Entry Points
+
+- **`pages/_app.tsx`**: Custom App component that wraps all pages. Used for global providers (e.g., Redux), global styles, and layout. This is where the Redux `<Provider>` is set up to make the store available throughout the app.
+- **`pages/index.tsx`**: The main landing (home) page of the application. Renders the primary UI, including the calendar and todo list components, and applies dynamic background styles based on the time of day.
+
+### Authentication & Landing Page Flow
+
+- **Unauthenticated users**: See a welcoming landing page with a prominent "Sign in with Google" button. No access to main app features until authenticated.
+- **Authenticated users**: See the main dashboard (calendar, todos, journal, etc.), with their Google profile info and a "Sign out" option.
+- **Sign out**: Users can sign out, which returns them to the landing page.
+- **Todos Storage**: For MVP, todos can be stored in localStorage or Redux state. For persistence across devices, use a backend database (e.g., MongoDB/PostgreSQL) linked to the user's Google ID.
+
 ### `/reducers`
 
 - Redux reducers
